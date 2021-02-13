@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('prueba1', function () {
+    return view('example.uno');
+});
+
 Route::get('/', function () {
     return view('auth.index');
 });
