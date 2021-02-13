@@ -7,10 +7,12 @@ window._ = require('lodash');
  */
 
 try {
-    window.Popper = require('popper.js').default;
-    window.$ = window.jQuery = require('jquery');
-
-    require('bootstrap');
+  window.$ = window.jQuery = require('jquery');
+  window.Popper = require('@popperjs/core');
+  window.moment = require('moment');
+  require('bootstrap');
+  require('admin-lte');
+  // window.Popper = require('popper.js').default;
 } catch (e) {}
 
 /**
@@ -19,9 +21,22 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
 
+window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+let token = document.head.querySelector('meta[name="csrf-token"]');
+if (token) {
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
+
+require('select2');
+require('overlayscrollbars');
+window.iziToast = require('izitoast');
+window.Sortable = require('sortablejs');
+require('sweetalert');
+require('./custom/double-request');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
