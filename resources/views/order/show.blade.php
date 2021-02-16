@@ -73,7 +73,7 @@
                     <td>{{ $do->product->code }}</td>
                     <td>{{ $do->product_name }}</td>
                     <td>{{ $do->product->productType->name }}</td>
-                    <td>{{ $do->getUnitValue() }}</td>
+                    <td>{{ $do->getPrice() }}</td>
                     <td>{{ $do->quantity }}</td>
                     <td>{{ $do->getTotal() }}</td>
                   </tr>

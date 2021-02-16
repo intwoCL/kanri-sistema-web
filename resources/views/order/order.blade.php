@@ -34,7 +34,7 @@
                   <tr>
                     <td>{{ $id++ }}</td>
                     <td>{{ $or->product->code }}</td>
-                    <td>{{ $or->product_name }}</td>
+                    <td>{{ $or->product->name }}</td>
                     <td>$ {{ $or->getPrice() }}</td>
                     <td>{{ $or->quantity }}</td>
                     <td>$ {{ $or->getTotal() }}</td>
@@ -42,7 +42,7 @@
                       <button class="btn btn-sm btn-danger" 
                       data-toggle="modal" 
                       data-target="#addProduct"
-                      data-id="{{ $dp->id }}">
+                      data-id="{{ $or->id }}">
                       <i class="fa fa-trash"></i>
                       </button>
                     </td>
@@ -84,7 +84,7 @@
                 <tr>
                   <td>
                     <div class="product-img">
-                      <img src="{{ $dp->presenter()->getPhoto() }}" alt="Product Image" class="img-size-50">
+                      <img src="{{ $dp->product->presenter()->getPhoto() }}" alt="Product Image" class="img-size-50">
                     </div>
                   </td>
                   <td>{{ $dp->product->code }}</td>
@@ -111,8 +111,57 @@
     </div>
   </div>
 </section>
-{{-- @include('budget._modal_add_product') --}}
+@include('order._modal_add_product')
 @endsection
 @push('javascript')
+<script>
+  $(function () {
+    $('#addProduct').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
 
+      var inputPrice = button.data('price');
+      var inputIdProduct = button.data('id');
+
+      var url = "{{route('provider.order.details.store',[$provider->id,$order->id])}}";
+      modal.find('.modal-title').text('¿Desea agregar este producto?');
+      console.log(inputPrice);
+      console.log("here");
+
+      modal.find('#inputIdProduct').val(inputIdProduct);
+      modal.find('#inputPrice').val(inputPrice);
+      modal.find('#inputQuantity').val(1).change();
+      modal.find('#formAdd').attr('action',url);
+      // totalNumber()
+    });
+
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        var id = button.data('id');
+        var provider_id = {{ $provider->id }};
+
+        var url = "{{route('provider.order.details.destroy',[$provider->id,$order->id])}}";
+        modal.find('.modal-title').text('¿Desea eliminar producto?');
+        modal.find('#inputDeleteId').val(id);
+        modal.find('#inputDeleteData').val(provider_id);
+        modal.find('#formDelete').attr('action',url);
+      });
+  });
+  function totalNumber() {
+    var count,price,total,text;
+    count = document.getElementById("inputQuantity").value;
+    price = document.getElementById("inputPrice").value;
+    if (isNaN(count) || isNaN(price)) {
+      text = "Es necesarios introducir dos números válidos";
+    } else {
+      total = parseFloat(count)*parseFloat(price);
+      if (total<0) {
+        total = "No se puede ingresar";
+      }
+      text = total;
+    }
+      document.getElementById("inputTotal").value = text;
+  }
+</script>
 @endpush

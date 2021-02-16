@@ -152,7 +152,7 @@
                 <th scope="row">{{ $id++ }}</th>
                 <td align="center">{{ $ds->name_service }}</td>
                 <td align="right">$ {{ $ds->getUniqueValue() }}</td>
-                <td align="right">$ {{ $ds->total }}</td>
+                <td align="right">$ {{ $ds->getUniqueValue() }}</td>
               </tr>
               @endforeach
             </tbody>

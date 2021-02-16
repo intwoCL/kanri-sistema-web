@@ -93,11 +93,11 @@
                 @foreach ($budget->detailsProduct as $dp)
                 <tr>>
                   <td>{{ $id++ }}</td>
-                  <td>{{ $ds->product->code }}</td>
-                  <td>{{ $ds->product_name }}</td>
-                  <td>{{ $ds->getUnitValue() }}</td>
-                  <td>{{ $ds->quantity }}</td>
-                  <td>{{ $ds->getTotal() }}</td>
+                  <td>{{ $dp->product->code }}</td>
+                  <td>{{ $dp->product_name }}</td>
+                  <td>{{ $dp->getUnitValue() }}</td>
+                  <td>{{ $dp->quantity }}</td>
+                  <td>{{ $dp->getTotal() }}</td>
                 </tr>
                 @endforeach
               </tbody>

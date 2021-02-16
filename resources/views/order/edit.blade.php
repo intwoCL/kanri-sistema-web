@@ -44,12 +44,12 @@
                   @foreach ($order->detailsOrder as $do)
                   <tr>
                     <td>{{ $id++ }}</td>
-                    <td>{{ $ds->product->code }}</td>
-                    <td>{{ $ds->product->name }}</td>
-                    <td>{{ $ds->product->productType->name }}</td>
-                    <td>{{ $ds->getPrice() }}</td>
-                    <td>{{ $ds->quantity }}</td>
-                    <td>{{ $ds->getTotal() }}</td>
+                    <td>{{ $do->product->code }}</td>
+                    <td>{{ $do->product->name }}</td>
+                    <td>{{ $do->product->productType->name }}</td>
+                    <td>{{ $do->getPrice() }}</td>
+                    <td>{{ $do->quantity }}</td>
+                    <td>{{ $do->getTotal() }}</td>
                     <td>
                       <input type="text" class="form-control {{ $errors->has('new_quantity') ? 'is_invalid' : '' }}" name="new_quantity" placeholder="0">
                       {!! $errors->first('new_quantity','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
@@ -58,6 +58,19 @@
                   @endforeach
                 </tbody>
               </table>
+              <div class="card-body">
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Estado</label>
+                  <div class="col-sm-8">
+                    <select name="status" id="select1" class="form-control {{ $errors->has('status') ? 'is_invalid' : '' }}" required>
+                      @foreach ($status as $key => $value)
+                        <option {{ $key==$order->status ? 'selected' : '' }} value="{{ $key }}" >{{ $value}}</option>
+                      @endforeach
+                    </select>
+                    {!! $errors->first('status','<div class="invalid-feedback">:message</div>') !!}
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="card-footer">
               <button type="submit" class="btn btn-success float-right">Actualizar</button>

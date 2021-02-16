@@ -34,8 +34,8 @@
                   <tr>
                     <td>{{ $id++ }}</td>
                     <td>{{ $dp->product->code }}</td>
-                    <td>{{ $dp->product_name }}</td>
-                    <td>$ {{ $dp->getUnitValue() }}</td>
+                    <td>{{ $dp->product->name }}</td>
+                    <td>$ {{ $dp->getPrice() }}</td>
                     <td>{{ $dp->quantity }}</td>
                     <td>$ {{ $dp->getTotal() }}</td>
                     <td>
@@ -113,8 +113,57 @@
     </div>
   </div>
 </section>
-{{-- @include('budget._modal_add_product') --}}
+@include('system.provider._modal_add_product')
+@include('system.provider._delete')
 @endsection
 @push('javascript')
+<script>
+  $(function () {
+    $('#addProduct').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
 
+      var inputPrice = button.data('price');
+      var inputIdProduct = button.data('id');
+
+      var url = "{{route('provider.products.store',[$provider->id])}}";
+      modal.find('.modal-title').text('¿Desea agregar este producto?');
+      console.log(inputPrice);
+      console.log("here");
+
+      modal.find('#inputIdProduct').val(inputIdProduct);
+      modal.find('#inputQuantity').val(1).change();
+      modal.find('#formAdd').attr('action',url);
+      totalNumber()
+    });
+
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        var id = button.data('id');
+        var provider_id = {{ $provider->id }};
+
+        var url = "{{route('provider.products.destroy',$provider->id)}}";
+        modal.find('.modal-title').text('¿Desea eliminar producto?');
+        modal.find('#inputDeleteId').val(id);
+        modal.find('#inputDeleteData').val(provider_id);
+        modal.find('#formDelete').attr('action',url);
+      });
+  });
+  function totalNumber() {
+    var count,price,total,text;
+    count = document.getElementById("inputQuantity").value;
+    price = document.getElementById("inputPrice").value;
+    if (isNaN(count) || isNaN(price)) {
+      text = "Es necesarios introducir dos números válidos";
+    } else {
+      total = parseFloat(count)*parseFloat(price);
+      if (total<0) {
+        total = "No se puede ingresar";
+      }
+      text = total;
+    }
+      document.getElementById("inputTotal").value = text;
+  }
+</script>
 @endpush

@@ -10,7 +10,7 @@
 @endcomponent
 <section class="content">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Lista de orden de compra</h3>

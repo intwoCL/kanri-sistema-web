@@ -113,8 +113,59 @@
     </div>
   </div>
 </section>
-{{-- @include('budget._modal_add_product') --}}
+@include('budget._modal_add_product')
+@include('budget._delete')
 @endsection
 @push('javascript')
+<script>
+  $(function () {
+    $('#addProduct').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
 
+      var inputPrice = button.data('price');
+      var inputIdProduct = button.data('id');
+      var inputName = button.data('name');
+
+      var url = "{{route('budget.products.store',$budget->id)}}";
+      modal.find('.modal-title').text('¿Desea agregar este producto?');
+      console.log(inputPrice);
+      console.log("here");
+
+      modal.find('#inputIdProduct').val(inputIdProduct);
+      modal.find('#inputPrice').val(inputPrice);
+      modal.find('#inputQuantity').val(1).change();
+      modal.find('#formAdd').attr('action',url);
+      // totalNumber();
+    });
+
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        var id = button.data('id');
+        var budget_id = {{ $budget->id }};
+
+        var url = "{{route('budget.products.destroy',$budget->id)}}";
+        modal.find('.modal-title').text('¿Desea eliminar producto?');
+        modal.find('#inputDeleteId').val(id);
+        modal.find('#inputDeleteData').val(budget_id);
+        modal.find('#formDelete').attr('action',url);
+      });
+  });
+  function totalNumber() {
+    var count,price,total,text;
+    count = document.getElementById("inputQuantity").value;
+    price = document.getElementById("inputPrice").value;
+    if (isNaN(count) || isNaN(price)) {
+      text = "Es necesarios introducir dos números válidos";
+    } else {
+      total = parseFloat(count)*parseFloat(price);
+      if (total<0) {
+        total = "No se puede ingresar";
+      }
+      text = total;
+    }
+      document.getElementById("inputTotal").value = text;
+  }
+</script>
 @endpush
