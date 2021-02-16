@@ -35,7 +35,7 @@ class PurchaseOrderController extends Controller
     {
       $provider = Provider::findOrFail($id);
       $status = PurchaseOrder::STATE;
-      return view('purchase.create', compact('status','provider'));
+      return view('order.create', compact('status','provider'));
     }
 
     /**
@@ -67,7 +67,7 @@ class PurchaseOrderController extends Controller
     {
       $provider = Provider::findOrFail($provider_id);
       $order = PurchaseOrder::findOrFail($purchase_order_id);
-      return view('purchase.show',compact('provider','order'));
+      return view('order.show',compact('provider','order'));
     }
 
     /**
@@ -83,7 +83,7 @@ class PurchaseOrderController extends Controller
         $provider = Provider::findOrFail($provider_id);
         $order = PurchaseOrder::findOrFail($purchase_order_id);
         $status = PurchaseOrder::STATE;
-        return view('purchase.edit',compact('provider','order','status'));
+        return view('order.edit',compact('provider','order','status'));
       } catch (\Throwable $th) {
         //throw $th;
       }
@@ -159,14 +159,14 @@ class PurchaseOrderController extends Controller
 
     public function print($id){
       $provider = Provider::findOrFail($id);
-      $pdf = \PDF::loadview('purchase.pdf', compact('provider'));
+      $pdf = \PDF::loadview('pdf.purchase', compact('provider'));
       return $pdf->download('orderCompra.pdf');
     }
 
     public function preview($provider_id, $purchase_order_id){
       $provider = Provider::findOrFail($provider_id);
       $order = PurchaseOrder::findOrFail($purchase_order_id);
-      $pdf = \PDF::loadview('purchase.pdf', compact('provider','order'));
+      $pdf = \PDF::loadview('pdf.purchase', compact('provider','order'));
       return $pdf->stream('orderCompra.pdf');
     }
 

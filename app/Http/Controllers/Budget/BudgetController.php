@@ -20,7 +20,7 @@ class BudgetController extends Controller
     public function index()
     {
       $budgets = Budget::get();
-      return view('budget.budget.index',compact('budgets'));
+      return view('budget.index',compact('budgets'));
     }
 
     /**
@@ -32,7 +32,7 @@ class BudgetController extends Controller
     {
       $clients = Client::get();
       $status = Budget::STATE;
-      return view('budget.budget.create',compact('clients','status'));
+      return view('budget.create',compact('clients','status'));
     }
 
     /**
@@ -66,7 +66,7 @@ class BudgetController extends Controller
     public function show($id)
     {
       $budget = Budget::findOrFail($id);
-      return view('budget.budget.show', compact('budget'));
+      return view('budget.show', compact('budget'));
     }
 
     /**
@@ -80,7 +80,7 @@ class BudgetController extends Controller
       $clients = Client::get();
       $status = Budget::STATE;
       $budget = Budget::findOrFail($id);
-      return view('budget.budget.edit',compact('budget', 'status','clients'));
+      return view('budget.edit',compact('budget', 'status','clients'));
     }
 
     /**
@@ -135,14 +135,14 @@ class BudgetController extends Controller
 
     public function imprimir($id){
       $budget = Budget::findOrFail($id);
-      $pdf = \PDF::loadView('pdf.pdf', compact('budget'));
+      $pdf = \PDF::loadView('pdf.budget', compact('budget'));
       return $pdf->download('presupuesto.pdf');
     }
 
     public function preview($id){
       $budget = Budget::findOrFail($id);
       // return view('budget.budget.show', compact('budget'));
-      $pdf = \PDF::loadView('pdf.pdf', compact('budget'));
+      $pdf = \PDF::loadView('pdf.budget', compact('budget'));
       return $pdf->stream();
     }
 

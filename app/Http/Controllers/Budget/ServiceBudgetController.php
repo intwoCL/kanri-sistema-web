@@ -27,7 +27,7 @@ class ServiceBudgetController extends Controller
     public function create($id)
     {
       $budget = Budget::findOrFail($id);
-      return view('budget.budget.service', compact('budget'));
+      return view('budget.service', compact('budget'));
     }
 
     /**
@@ -62,7 +62,7 @@ class ServiceBudgetController extends Controller
     public function show($id)
     {
       $serbu = ServiceBudget::findOrFail($id);
-      return view('budget.budget.show', compact('serbu'));
+      return view('budget.show', compact('serbu'));
     }
 
     /**

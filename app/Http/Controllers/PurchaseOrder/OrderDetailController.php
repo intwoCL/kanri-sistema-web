@@ -15,7 +15,7 @@ class OrderDetailController extends Controller
     $provider = Provider::findOrFail($provider_id);
     $order = PurchaseOrder::findOrFail($puchase_order_id);
 
-    return view('purchase.order', compact('provider', 'order'));
+    return view('order.order', compact('provider', 'order'));
   }
 
   public function store(Request $request, $provider_id, $puchase_order_id){

@@ -22,6 +22,7 @@
             <a href="{{ route('types.index') }}" class="nav-link"><i class="fa fa-user-tag fa-xs mr-2"></i> Tipo</a>
             <a href="{{ route('unit.index') }}" class="nav-link"><i class="fa fa-weight fa-xs mr-2"></i> Unidad</a>
             <a href="{{ route('category.index') }}" class="nav-link"><i class="fa fa-tags fa-xs mr-2"></i> Categoría</a>
+            <a href="{{ route('product.index') }}" class="nav-link"><i class="fa fa-tags fa-xs mr-2"></i> Producto</a>
           </div>
         </div>
       </div>

@@ -136,6 +136,6 @@ class ProviderController extends Controller
     public function order($id)
     {
       $provider = Provider::findOrFail($id);
-      return view('purchase.index', compact('provider'));
+      return view('order.index', compact('provider'));
     }
 }

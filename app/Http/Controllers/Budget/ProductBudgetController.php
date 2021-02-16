@@ -30,7 +30,7 @@ class ProductBudgetController extends Controller
       $budget = Budget::findOrFail($id);
       $products = Product::with('productType')->get();
       // return $products;
-      return view('budget.budget.products', compact('budget','products'));
+      return view('budget.products', compact('budget','products'));
     }
 
     /**
@@ -70,7 +70,7 @@ class ProductBudgetController extends Controller
     {
       $product = Product::get();
       $probu = ProductBudget::findOrFail($id);
-      return view('budget.budget.show', compact('product','probu'));
+      return view('budget.show', compact('product','probu'));
     }
 
     /**
