@@ -16,9 +16,9 @@ Route::get('tabla', function () {
   return view('tabla');
 });
 
-// Route::get('/debug-sentry', function () {
-//   throw new Exception('My first Sentry error!');
-// });
+Route::get('/debug-sentry', function () {
+  throw new Exception('My first Sentry error!');
+});
 
 // Route::namespace('Inventary')->group(function () {
 //   Route::prefix('evento')->group(function () {
