@@ -91,7 +91,7 @@
               <tbody>
                 @php $id = 1; @endphp
                 @foreach ($budget->detailsProduct as $dp)
-                <tr>>
+                <tr>
                   <td>{{ $id++ }}</td>
                   <td>{{ $dp->product->code }}</td>
                   <td>{{ $dp->product_name }}</td>

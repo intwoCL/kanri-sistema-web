@@ -90,7 +90,7 @@
     <div class="col-sm-5">
       <div class="card">
         <div class="card-header">
-          <strong>Emitir Factura a: </strong>
+          <h4 class="card-title"><strong>Emitir Factura a: </strong></h4>
         </div>
         <div class="card-body p-0">
           <table class="table-sm">
@@ -126,7 +126,7 @@
     <div class="col-sm-5">
       <div class="card">
         <div class="card-header">
-          <strong>Proveedor: </strong>
+          <h4 class="card-title"><strong>Proveedor: </strong></h4>
         </div>
         <div class="card-body p-0">
           <table class="table-sm">

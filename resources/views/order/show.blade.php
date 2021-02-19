@@ -68,7 +68,7 @@
                 <tbody>
                   @php $id = 1; @endphp
                   @foreach ($order->detailsOrder as $do)
-                  <tr>>
+                  <tr>
                     <td>{{ $id++ }}</td>
                     <td>{{ $do->product->code }}</td>
                     <td>{{ $do->product_name }}</td>
