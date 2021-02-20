@@ -103,3 +103,6 @@ Route::middleware('auth.user')->group(function () {
 // Route::get('category', 'Inventary\CategoryController@index')->name('category.index');
 // Route::get('category/create', 'Inventary\CategoryController@create')->name('category.create');
 // Route::post('category', 'Inventary\CategoryController@store')->name('category.store');
+
+
+Route::get('company','System\CompanyController@index')->name('company.index');
