@@ -25,6 +25,8 @@
             <th>Dirección</th>
             <th>Correo electrónico</th>
             <th>Télefono</th>
+            <th></th>
+            <th></th>
           </tr>
           </thead>
           <tbody>

@@ -23,8 +23,6 @@
                   {!! $errors->first('issue_date','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Comentario</label>
                 <div class="col-sm-8">

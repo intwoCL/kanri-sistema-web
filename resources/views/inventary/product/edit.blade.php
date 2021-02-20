@@ -24,8 +24,6 @@
                   {!! $errors->first('code','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Nombre</label>
                 <div class="col-sm-8">
@@ -33,8 +31,6 @@
                   {!! $errors->first('name','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Descripción</label>
                 <div class="col-sm-8">
@@ -42,8 +38,6 @@
                   {!! $errors->first('description','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Costo</label>
                 <div class="col-sm-8">
@@ -51,8 +45,6 @@
                   {!! $errors->first('import_price','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Valor</label>
                 <div class="col-sm-8">
@@ -60,8 +52,6 @@
                   {!! $errors->first('credit_price','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Categoría</label>
                 <div class="col-sm-8">
@@ -73,8 +63,6 @@
                   {!! $errors->first('category_id','<div class="invalid-feedback">:message</div>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Tipo Producto</label>
                 <div class="col-sm-8">
@@ -86,8 +74,6 @@
                   {!! $errors->first('product_type_id','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Unidad Medida</label>
                 <div class="col-sm-8">
@@ -99,8 +85,6 @@
                   {!! $errors->first('units_id','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Stock disponible</label>
                 <div class="col-sm-8">
@@ -108,8 +92,6 @@
                   {!! $errors->first('available_stock','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Stock crítico</label>
                 <div class="col-sm-8">
@@ -117,8 +99,6 @@
                   {!! $errors->first('critical_stock','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label for="inputPhoto" class="col-sm-4 col-form-label">Imagen <small class="text-danger">* (opcional)</small></label>
                 <div class="col-sm-8">

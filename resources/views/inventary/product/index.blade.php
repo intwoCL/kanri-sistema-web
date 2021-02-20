@@ -30,6 +30,8 @@
             <th>U.M.</th>
             <th>Stock D.</th>
             <th>Stock C.</th>
+            <th></th>
+            <th></th>
           </tr>
           </thead>
           <tbody>

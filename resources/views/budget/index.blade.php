@@ -28,6 +28,8 @@
             <th>Subtotal</th>
             <th>Total</th>
             <th>Estado</th>
+            <th></th>
+            <th></th>
           </tr>
           </thead>
           <tbody>

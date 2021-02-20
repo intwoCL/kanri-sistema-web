@@ -24,8 +24,6 @@
                   {!! $errors->first('email','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Contraseña <small class="text-danger"* (123456)></small></label>
                 <div class="col-sm-8">
@@ -33,8 +31,6 @@
                   {!! $errors->first('password','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Nombre</label>
                 <div class="col-sm-8">
@@ -42,8 +38,6 @@
                   {!! $errors->first('first_name','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Apellido</label>
                 <div class="col-sm-8">
@@ -51,8 +45,6 @@
                   {!! $errors->first('last_name','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Rol</label>
                 <div class="col-sm-8">
@@ -64,8 +56,6 @@
                   {!! $errors->first('rol_id','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label for="inputPhoto" class="col-sm-4 col-form-label">Foto <small class="text-danger">* (opcional)</small></label>
                 <div class="col-sm-8">
@@ -74,6 +64,7 @@
                 </div>
               </div>
             </div>
+
             <div class="card-footer">
               <button type="submit" class="btn btn-success float-right">Guardar</button>
             </div>

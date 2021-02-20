@@ -23,8 +23,6 @@
                   {!! $errors->first('rut','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Nombres</label>
                 <div class="col-sm-8">
@@ -32,8 +30,6 @@
                   {!! $errors->first('names','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Apellidos</label>
                 <div class="col-sm-8">
@@ -41,8 +37,6 @@
                   {!! $errors->first('surnames','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Dirección</label>
                 <div class="col-sm-8">
@@ -50,8 +44,6 @@
                   {!! $errors->first('address','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Email</label>
                 <div class="col-sm-8">
@@ -59,8 +51,6 @@
                   {!! $errors->first('email','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Télefono</label>
                 <div class="col-sm-8">
@@ -69,6 +59,7 @@
                 </div>
               </div>
             </div>
+            
             <div class="card-footer">
               <button type="submit" class="btn btn-success float-right">Actualizar</button>
             </div>

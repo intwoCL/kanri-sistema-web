@@ -23,6 +23,8 @@
             <th>Correo electrónico</th>
             <th>Nombre Completo</th>
             <th>Rol</th>
+            <th></th>
+            <th></th>
           </tr>
           </thead>
           <tbody>

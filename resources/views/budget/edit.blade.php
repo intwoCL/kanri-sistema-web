@@ -29,8 +29,6 @@
                   {!! $errors->first('client_id','<div class="invalid-feedback">:message</div>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Fecha Inicio</label>
                 <div class="col-sm-8">
@@ -38,8 +36,6 @@
                   {!! $errors->first('start_date','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Fecha Termino</label>
                 <div class="col-sm-8">
@@ -47,8 +43,6 @@
                   {!! $errors->first('finish_date','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Comentario</label>
                 <div class="col-sm-8">
@@ -56,8 +50,6 @@
                   {!! $errors->first('glosa','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
-            </div>
-            <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Estado</label>
                 <div class="col-sm-8">
