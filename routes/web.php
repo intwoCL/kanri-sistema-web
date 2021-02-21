@@ -2,14 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('prueba1', function () {
-    return view('example.uno');
-});
-
-Route::get('/', function () {
-    return view('auth.index');
-});
+Route::get('/', 'Auth\AuthUserController@index');
 Route::post('login', 'Auth\AuthUserController@login')->name('login');
+
 Route::resource('user', 'System\UserController');
 
 Route::get('tabla', function () {
@@ -106,3 +101,4 @@ Route::middleware('auth.user')->group(function () {
 
 
 Route::get('company','System\CompanyController@index')->name('company.index');
+Route::put('company','System\CompanyController@update')->name('company.update');

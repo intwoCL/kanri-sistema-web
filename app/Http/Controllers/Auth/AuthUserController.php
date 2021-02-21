@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\System\Company;
 use Illuminate\Http\Request;
 use App\Models\System\User;
 
@@ -10,33 +11,31 @@ use Auth;
 
 class AuthUserController extends Controller
 {
+  public function index(){
+    $this->close_sessions();
+    $company = Company::first();
 
-  public function home()
-  {
+    return view('auth.index',compact('company'));
+  }
+
+  public function home(){
     return view('home');
   }
 
-  public function index()
-  {
-    $this->close_sessions();
-    return view('auth.index');
-  }
-
-  public function login(Request $request)
-  {
+  public function login(Request $request){
     try {
       $u = User::where('email',$request->email)->firstOrFail();
       $pass = hash('sha256',$request->password);
       // return $pass;
       if($u->password==$pass){
         Auth::guard('user')->loginUsingId($u->id);
+        $this->buildCompany();
         return redirect()->route('home');
       }else{
         return $u;
       }
     } catch (\Throwable $th) {
-      return $th;
-      // return back()->with('info','Error. Intente nuevamente.');
+      return back()->with('info','Error. Intente nuevamente.');
     }
   }
 
@@ -45,15 +44,15 @@ class AuthUserController extends Controller
     return redirect('/');
   }
 
-  // public function reset(){
-  //   return view('layouts.reset');
-  //   }
-
-
   private function close_sessions(){
     if(\Auth::guard('user')->check()){
       \Auth::guard('user')->logout();
     }
+  }
+
+  private function buildCompany(){
+    $company = Company::first();
+    session(['company' => $company]);
   }
 
   // public function resetPassword(ResetPasswordRequest $request){

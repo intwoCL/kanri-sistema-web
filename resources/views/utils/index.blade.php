@@ -53,6 +53,18 @@
           </div>
         </div>
       </div>
+      <div class="col-md-2">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">
+              Configuración
+            </h3>
+          </div>
+          <div class="card-body">
+            <a href="{{ route('company.index') }}" class="nav-link"><i class="fa fa-cog fa-xs mr-2"></i> Mi empresa</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

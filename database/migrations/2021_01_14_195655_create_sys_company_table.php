@@ -17,18 +17,18 @@ class CreateSysCompanyTable extends Migration
             $table->id();
             $table->string('photo')->nullable();
             $table->string('logo')->nullable();
-            $table->string('run');
+            $table->string('run')->nullable();
             $table->string('name_owner')->nullable();
-            $table->string('name_company');
-            $table->string('type');
-            $table->string('address');
+            $table->string('name_company')->nullable();
+            $table->string('type')->nullable();
+            $table->string('address')->nullable();
             $table->foreignId('city_id')->references('id')->on('sys_cities');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->string('web_site')->nullable();
-            $table->json('settings');
-            $table->json('integrations');
-            $table->string('color_company');
+            $table->json('settings')->nullable();
+            $table->json('integrations')->nullable();
+            $table->string('color_company')->nullable();
             $table->timestamps();
         });
     }

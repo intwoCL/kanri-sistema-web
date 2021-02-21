@@ -17,6 +17,9 @@ Creado por (Justice2197)[https://github.com/Justice2197]
 
 # Como iniciar el proyecto
 ```
+php artisan migrate:fresh --seed
+
+
 php artisan storage:link
 php artisan migrate:refresh --seed
 

@@ -37,7 +37,7 @@ class User extends Authenticatable
     $encryPassword = hash('sha256', $newPassword);
     $this->password = $encryPassword;
     $this->update();
-    return [$newPassword,$encryPassword]; 
+    return [$newPassword,$encryPassword];
   }
 
   public function role()
@@ -49,13 +49,13 @@ class User extends Authenticatable
   {
     return new UserPresenter($this);
   }
-  
+
   public function authorizeRoles($roles)
   {
       abort_unless($this->hasAnyRole($roles), 401);
       return true;
   }
-  
+
   public function hasAnyRole($roles)
   {
       if (is_array($roles)) {
@@ -66,8 +66,8 @@ class User extends Authenticatable
           }
       } else {
           if ($this->hasRole($roles)) {
-              return true; 
-          }   
+              return true;
+          }
       }
       return false;
   }
@@ -78,6 +78,10 @@ class User extends Authenticatable
           return true;
       }
       return false;
+  }
+
+  public function company(){
+    return session()->get('company');
   }
 
 }

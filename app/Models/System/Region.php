@@ -10,4 +10,6 @@ class Region extends Model
   use HasFactory;
 
   protected $table = 'sys_regions';
+  public $timestamps = false;
+
 }

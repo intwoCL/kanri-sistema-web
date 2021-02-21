@@ -2,7 +2,7 @@
   function active($url){return request()->is($url) ? 'active' : '';}
   function open($url){return request()->is($url) ? 'menu-open' : '';}
   $name = current_user()->presenter()->getFullName();
-  // $img = "/dist/img/AdminLTELogo.png";
+  $img = current_user()->company()->presenter()->getLogo();
 @endphp
 <aside class="main-sidebar sidebar-dark-dark elevation-4">
   <!-- Brand Logo -->
@@ -14,14 +14,13 @@
   <a href="{{ route('home') }}" class="brand-link bg-white text-sm">
     <span class="brand-text font-weight-light">Panel</span>
     <span class="brand-text"><b> Administrativo</b></span>
-    <img src="/dist/image/logo.jpeg" alt="" class="brand-image brand-text elevation-3">
-
+    {{-- <img src="{{ $img }}" alt="" width="50" height="100" class="brand-image brand-text elevation-3"> --}}
   </a>
   <div class="sidebar">
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      {{-- <div class="image">
-        <img src="{{ $img }}" class="img-circle elevation-2" alt="User Image">
-      </div> --}}
+    <center>
+      <img src="{{ $img }}" width="200" class="mt-1" alt="">
+    </center>
+    <div class="user-panel pb-3 mb-3 d-flex">
       <div class="info">
         <a href="/perfil" class="d-block">{{ $name }}</a>
       </div>

@@ -14,7 +14,7 @@
     }
 
     .intro-section {
-      background-image: url("/dist/image/equipa.png");
+      background-image: url("{{ $company->presenter()->getPhoto() }}");
       /* background-color: antiquewhite; */
       background-size: cover;
       background-repeat: no-repeat;

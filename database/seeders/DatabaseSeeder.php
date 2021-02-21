@@ -23,9 +23,11 @@ class DatabaseSeeder extends Seeder
         'in_units',
         'sys_users',
         'sys_roles',
+        'sys_company',
       ]);
 
-      
+        Artisan::call('cities:import');
+
         // \App\Models\User::factory(10)->create();
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
@@ -33,7 +35,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductTypeSeeder::class);
         $this->call(UnitSeeder::class);
 
-        Artisan::call('cities:import');
+
+        $this->call(CompanySeeder::class);
     }
 
     public function truncateTables(array $tables)
