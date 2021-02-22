@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Budget\Budget;
 use App\Models\System\User;
 use App\Models\System\Client;
+use App\Models\System\Company;
 use App\Services\Config;
 use Laravel\Ui\Presets\React;
 
@@ -135,14 +136,16 @@ class BudgetController extends Controller
 
     public function imprimir($id){
       $budget = Budget::findOrFail($id);
-      $pdf = \PDF::loadView('pdf.budget', compact('budget'));
+      $company = Company::first();
+      $pdf = \PDF::loadView('pdf.budget', compact('budget','company'));
       return $pdf->download('presupuesto.pdf');
     }
 
     public function preview($id){
       $budget = Budget::findOrFail($id);
+      $company = Company::first();
       // return view('budget.budget.show', compact('budget'));
-      $pdf = \PDF::loadView('pdf.budget', compact('budget'));
+      $pdf = \PDF::loadView('pdf.budget', compact('budget','company'));
       return $pdf->stream();
     }
 

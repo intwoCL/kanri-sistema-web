@@ -29,7 +29,7 @@
     <div class="col-sm-5">
       <div class="card">
         <div class="card-header">
-          <img style="float:right" src="dist/image/logo2.png" alt="Logo PPEquipamientos" width="35%">
+          <img style="float:right" src=".{{ $company->presenter()->getLogo() }}" alt="Logo PPEquipamientos" width="35%">
         </div>
       </div>
     </div>
@@ -39,39 +39,7 @@
       <div class="card">
         <div class="card-header">
           <div class="card-body p-0">
-            <table class="table-sm">
-              <tbody>
-                <tr>
-                  <br>
-                  <td><strong>Empresa: </strong></td>
-                  <td>PPEquipamientos</td>
-                </tr>
-                <tr>
-                  <td><strong>Dueño: </strong></td>
-                  <td>Pablo Peña Paredes</td>
-                </tr>
-                <tr>
-                  <td><strong>Dirección: </strong></td>
-                  <td>Santa Sara 11826 - El Bosque</td>
-                </tr>
-                <tr>
-                  <td><strong>Región: </strong></td>
-                  <td>Región Metropolitana</td>
-                </tr>
-                <tr>
-                  <td><strong>Ciudad: </strong> </td>
-                  <td>Santiago - Chile</td>
-                </tr>
-                <tr>
-                  <td><strong>Móvil: </strong></td>
-                  <td>+56 9 9249 3849</td>
-                </tr>
-                <tr>
-                  <td><strong>Página web: </strong></td>
-                  <td>www.ppequipamientos.cl</td>
-                </tr>
-              </tbody>
-            </table>
+            @include('partials._info_pdf')
           </div>
         </div>
       </div>

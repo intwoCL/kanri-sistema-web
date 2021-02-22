@@ -31,7 +31,8 @@
       <div class="col-sm-5">
         <div class="card">
           <div class="card-header">
-            <img style="float:right" src="dist/image/logo2.png" width="240" height="101" alt="Logo PPEquipamientos">
+            <img style="float:right" src=".{{ $company->presenter()->getLogo() }}" width="200" alt="Logo PPEquipamientos">
+            {{-- {{ $company->presenter()->getLogo() }} --}}
           </div>
         </div>
       </div>

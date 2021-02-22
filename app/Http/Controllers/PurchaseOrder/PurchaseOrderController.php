@@ -11,6 +11,7 @@ use App\Models\PurchaseOrder\OrderDetail;
 use App\Models\System\Provider;
 use App\Models\System\User;
 use App\Models\Inventary\ProductProvider;
+use App\Models\System\Company;
 use App\Services\Config;
 use Laravel\Ui\Presets\React;
 
@@ -159,14 +160,16 @@ class PurchaseOrderController extends Controller
 
     public function print($id){
       $provider = Provider::findOrFail($id);
-      $pdf = \PDF::loadview('pdf.purchase', compact('provider'));
+      $company = Company::first();
+      $pdf = \PDF::loadview('pdf.purchase', compact('provider','company'));
       return $pdf->download('orderCompra.pdf');
     }
 
     public function preview($provider_id, $purchase_order_id){
       $provider = Provider::findOrFail($provider_id);
       $order = PurchaseOrder::findOrFail($purchase_order_id);
-      $pdf = \PDF::loadview('pdf.purchase', compact('provider','order'));
+      $company = Company::first();
+      $pdf = \PDF::loadview('pdf.purchase', compact('provider','order','company'));
       return $pdf->stream('orderCompra.pdf');
     }
 

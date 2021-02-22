@@ -4,19 +4,19 @@
       <tbody>
         <tr>
           <td><strong>RUT: </strong></td>
-          <td>14.285.735-9</td>
+          <td>{{ $company->run }}</td>
         </tr>
         <tr>
           <td><strong>Dueño: </strong></td>
-          <td>Pablo Peña Paredes</td>
+          <td>{{ $company->name_owner }}</td>
         </tr>
         <tr>
           <td><strong>Dirección: </strong></td>
-          <td>Santa Sara 11826 - El Bosque</td>
+          <td>{{ $company->address }} - {{ $company->city->name }}</td>
         </tr>
         <tr>
           <td><strong>Región: </strong></td>
-          <td>Región Metropolitana</td>
+          <td>{{ $company->city->region->name }}</td>
         </tr>
         <tr>
           <td><strong>Ciudad: </strong></td>
@@ -24,15 +24,15 @@
         </tr>
         <tr>
           <td><strong>Teléfono: </strong></td>
-          <td>+56 9 4249 3849</td>
+          <td>+56 9 {{ $company->phone }}</td>
         </tr>
         <tr>
           <td><strong>Correo: </strong></td>
-          <td>ppena@ppequipamientos.cl</td>
+          <td>{{ $company->email }}</td>
         </tr>
         <tr>
           <td><strong>Sitio web: </strong></td>
-          <td>www.ppequipamientos.cl</td>
+          <td>{{ $company->web_site }}</td>
         </tr>
       </tbody>
     </thead>
