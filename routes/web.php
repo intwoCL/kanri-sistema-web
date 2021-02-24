@@ -75,6 +75,10 @@ Route::middleware('auth.user')->group(function () {
 
   Route::post('/provider/{id}/order/{purchase_id}/recalculated', 'PurchaseOrder\PurchaseOrderController@recalculated')->name('provider.order.recalculated');
 
+  //Carrito de Compra
+  Route::get('cart','Cart\CartController@index')->name('cart.index');
+  Route::get('cart/products','Cart\CartController@create')->name('cart.product');
+  Route::post('cart/products','Cart\CartController@store')->name('cart.store');
 
   //Usuarios y Clientes
   Route::resource('user', 'System\UserController');
