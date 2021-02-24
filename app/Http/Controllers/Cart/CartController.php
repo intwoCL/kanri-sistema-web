@@ -8,80 +8,63 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  private $name_sesion = "carrito";
 
-    public function index()
-    {
-      
+  public function index(){
+    $products = Product::all();
+    $cart = $this->getCart();
+    // $productosMIOS = $this->getProducts(); o
+    $mis_productos = $cart['products'];
+
+
+    // return $cart;
+    // return $cart['product'];
+    return view('cart.index', compact('products','cart','mis_productos'));
+  }
+
+  public function addProduct(Request $request){
+    $p = Product::find($request->input('product_id'));
+    $this->addProducto($p);
+    return back()->with('success','agregado');
+  }
+
+  // Crea la sesion de carrito y si no esta
+  private function getCart(){
+    if (session()->has($this->name_sesion)) {
+      return session()->get($this->name_sesion);
     }
+    $this->handle();
+    return $this->getCart();
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
 
-    }
+  private function handle(){
+    $cart = array(
+      'user_id' => current_user()->id,
+      'products' => [],
+      'total' => 0
+    );
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store()
-    {
+    return $this->save($cart);
+  }
 
-    }
+  private function save($cart){
+    session([$this->name_sesion => $cart]);
+  }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
+  private function getProducts(){
+    return $this->getCart()['products'];
+  }
 
-    }
+  public function addProducto(Product $p){
+    $cart = $this->getCart();
+    array_push($cart['products'],$p);
+    $this->save($cart);
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+  public function deleteCart(){
+    session([$this->name_sesion => null]);
+    return back()->with('success','Eliminado');
+  }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-      
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
