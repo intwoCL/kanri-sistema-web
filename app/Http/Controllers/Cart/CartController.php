@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cart;
 use App\Http\Controllers\Controller;
 use App\Models\Inventary\Product;
 use Illuminate\Http\Request;
+use PhpParser\Node\NullableType;
 
 class CartController extends Controller
 {
@@ -13,18 +14,16 @@ class CartController extends Controller
   public function index(){
     $products = Product::all();
     $cart = $this->getCart();
-    // $productosMIOS = $this->getProducts(); o
-    $mis_productos = $cart['products'];
-
-
-    // return $cart;
-    // return $cart['product'];
+    $mis_productos = $cart['products'] ?? null;
     return view('cart.index', compact('products','cart','mis_productos'));
   }
 
   public function addProduct(Request $request){
     $p = Product::find($request->input('product_id'));
-    $this->addProducto($p);
+    // $new_price = $request->input('unit_value');
+    $cantidad = $request->input('quantity');
+
+    $this->addProducto($p, $cantidad);
     return back()->with('success','agregado');
   }
 
@@ -56,19 +55,21 @@ class CartController extends Controller
     return $this->getCart()['products'];
   }
 
-  public function addProducto(Product $p){
-    $product = Product::get();
+  public function addProducto(Product $p, $cantidad){
     $cart = $this->getCart();
-    foreach ($product as $item) {
-      $p =[
-        'id'=>$item->id,
-        'photo'=>$item->photo,
-        'code'=>$item->code,
-        'name'=>$item->name,
-        'price'=>$item->credit_price
-      ];
-    } 
-    array_push($cart['products'],$p);
+    $product =[
+      'id'       => $p->id,
+      'photo'    => $p->presenter()->getPhoto(),
+      'code'     => $p->code,
+      'name'     => $p->name,
+      'price'    => $p->credit_price,
+      'quantity' => $cantidad
+    ];
+
+    // NOTA: Este metodo tambien deberia ver si no esta duplicado el producto
+
+    $cart['total'] += $p->credit_price * $cantidad;
+    array_push($cart['products'],$product);
     $this->save($cart);
   }
 

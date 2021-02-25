@@ -35,10 +35,16 @@
                   @foreach ($mis_productos as $mp)
                   <tr>
                     <td>{{ $mp['id'] }}</td>
-                    <td>{{ $mp['photo'] }}</td>
+                    <td>
+                      <div class="product-img">
+                        <img src="{{ $mp['photo'] }}" alt="Product Image" class="img-size-50">
+                      </div>
+                    </td>
                     <td>{{ $mp['code'] }}</td>
                     <td>{{ $mp['name'] }}</td>
-                    <td>{{ $mp['price'] }}</td>
+                    <td>$ {{ $mp['price'] }}</td>
+                    <td>{{ $mp['quantity'] }}</td>
+                    <td>$ {{ $mp['price'] * $mp['quantity'] }}</td>
                     {{-- <td></td>
                     <td></td> --}}
                     {{-- <td>$ {{ $dp->getUnitValue() }}</td>
@@ -56,6 +62,9 @@
                   @endforeach
                 </tbody>
               </table>
+            </div>
+            <div class="card-footer text-right">
+              <h2>Total $ {{ $cart['total'] ?? 0 }}</h2>
             </div>
           </div>
         </div>
