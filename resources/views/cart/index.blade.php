@@ -14,14 +14,15 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-header">
-              <h3 class="card title">Productos</h3>
+              <h3>Productos</h3>
+              <a href="{{ route('cart.delete') }}" class="btn btn-danger float-right btn-sm">Eliminar</a>
             </div>
-            <a href="{{ route('cart.delete') }}">delete</a>
             <div class="card-body table-responsive">
               <table class="table table-bordered table-hover table-sm">
                 <thead>
                 <tr>
                   <th>#</th>
+                  <th>Imagen</th>
                   <th>Producto</th>
                   <th>Nombre producto</th>
                   <th>Valor</th>
@@ -33,9 +34,13 @@
                   @php $id = 1; @endphp
                   @foreach ($mis_productos as $mp)
                   <tr>
-                    <td>{{ $id++ }}</td>
+                    <td>{{ $mp['id'] }}</td>
+                    <td>{{ $mp['photo'] }}</td>
                     <td>{{ $mp['code'] }}</td>
                     <td>{{ $mp['name'] }}</td>
+                    <td>{{ $mp['price'] }}</td>
+                    {{-- <td></td>
+                    <td></td> --}}
                     {{-- <td>$ {{ $dp->getUnitValue() }}</td>
                     <td>{{ $dp->quantity }}</td>
                     <td>$ {{ $dp->getTotal() }}</td>

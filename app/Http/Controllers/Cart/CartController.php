@@ -57,7 +57,17 @@ class CartController extends Controller
   }
 
   public function addProducto(Product $p){
+    $product = Product::get();
     $cart = $this->getCart();
+    foreach ($product as $item) {
+      $p =[
+        'id'=>$item->id,
+        'photo'=>$item->photo,
+        'code'=>$item->code,
+        'name'=>$item->name,
+        'price'=>$item->credit_price
+      ];
+    } 
     array_push($cart['products'],$p);
     $this->save($cart);
   }
