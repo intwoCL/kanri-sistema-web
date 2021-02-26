@@ -40,8 +40,8 @@
               <input type="hidden" name="provider_id" value="{{ $provider->id }}">
               <button class="mb-2 btn btn-primary btn-sm" type="submit">Recalcular</button>
             </form>
-            <a href="{{ route('provider.order.preview',[$provider->id,$order->id]) }}" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa fa-file fa-xs mr-2"></i> Visualizar</a>
-            <a href="{{ route('provider.order.print',[$provider->id,$order->id]) }}" class="nav-link"><i class="fa fa-user fa-xs mr-2"></i> Descargar</a>
+            <a href="{{ route('provider.order.preview',[$provider->id,$order->id]) }}" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa fa-file-pdf fa-xs mr-2"></i> Visualizar</a>
+            <a href="{{ route('provider.order.print',[$provider->id,$order->id]) }}" class="nav-link"><i class="fa fa-cloud-download-alt fa-xs mr-2"></i> Descargar</a>
           </div>
         </div>
       </div>
@@ -61,8 +61,6 @@
                   <th>Nombre producto</th>
                   <th>Tipo</th>
                   <th>Valor</th>
-                  <th>Cantidad</th>
-                  <th>Total</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -74,8 +72,6 @@
                     <td>{{ $do->product_name }}</td>
                     <td>{{ $do->product->productType->name }}</td>
                     <td>{{ $do->getPrice() }}</td>
-                    <td>{{ $do->quantity }}</td>
-                    <td>{{ $do->getTotal() }}</td>
                   </tr>
                   @endforeach
                 </tbody>

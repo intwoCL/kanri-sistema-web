@@ -6,7 +6,7 @@
 @component('components.button._back')
   @slot('route', route('provider.show',$provider->id))
   @slot('color', 'dark')
-  @slot('body', "Vista de presupuesto")
+  @slot('body', "Vista de productos")
 @endcomponent
 <section class="content">
   <div class="container-fluid">
@@ -24,8 +24,6 @@
                   <th>Producto</th>
                   <th>Nombre producto</th>
                   <th>Valor</th>
-                  <th>Cantidad</th>
-                  <th>Total</th>
                   <th></th>
                 </tr>
                 </thead>
@@ -37,8 +35,6 @@
                     <td>{{ $dp->product->code }}</td>
                     <td>{{ $dp->product->name }}</td>
                     <td>$ {{ $dp->getPrice() }}</td>
-                    <td>{{ $dp->quantity }}</td>
-                    <td>$ {{ $dp->getTotal() }}</td>
                     <td>
                       <button class="btn btn-sm btn-danger" 
                       data-toggle="modal" 
@@ -133,9 +129,8 @@
       console.log("here");
 
       modal.find('#inputIdProduct').val(inputIdProduct);
-      modal.find('#inputQuantity').val(1).change();
       modal.find('#formAdd').attr('action',url);
-      totalNumber()
+      //totalNumber()
     });
 
     $('#deleteModal').on('show.bs.modal', function (event) {

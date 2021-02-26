@@ -6,7 +6,7 @@
 @component('components.button._back')
   @slot('route', route('order.show',[$provider->id,$order->id]))
   @slot('color', 'dark')
-  @slot('body', "Vista de presupuesto")
+  @slot('body', "Vista de productos")
 @endcomponent
 <section class="content">
   <div class="container-fluid">
@@ -72,10 +72,7 @@
                 <th>Código</th>
                 <th>Nombre</th>
                 <th>Descripción</th>
-                <th>Tipo</th>
                 <th>Valor</th>
-                <th>Cantidad</th>
-                <th>Total</th>
                 <th></th>
               </tr>
               </thead>
@@ -91,8 +88,6 @@
                   <td>{{ $dp->product->name }}</td>
                   <td>{{ $dp->product->description }}</td>
                   <td>$ {{ $dp->price }}</td>
-                  <td>{{ $dp->quantity }}</td>
-                  <td>{{ $dp->getTotal() }}</td>
                   <td>
                     <button class="btn btn-sm btn-primary"
                     data-toggle="modal"

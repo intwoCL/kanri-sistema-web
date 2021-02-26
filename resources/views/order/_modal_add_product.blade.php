@@ -12,12 +12,15 @@
         <input type="hidden" name="product_id" id="inputIdProduct">
         <div class="modal-body">
           <div class="form-group row">
-            <label class="col-form-label col-sm-4">Unidad</label>
-            <select class="form-control col-sm-5 ml-3" id="inputQuantity" name="quantity"  onchange="totalNumber()">
-              @for($i = 1; $i <= 12; $i++)
-              <option value="{{ $i }}">{{ $i }}</option>
-              @endfor
-            </select>
+            <label for="nameEvento" class="col-form-label col-sm-4">Unidad</label>
+            <div class="input-group col-sm-8">
+              <div class="input-group-addon input-group-append">
+                <div class="input-group-text">
+                    <i class="fas fa-sort-amount-up"></i>
+                </div>
+              </div>
+              <input type="number" class="form-control" id="inputQuantity" name="quantity" placeholder="" min="0" value="" onchange="totalNumber()">
+            </div>
           </div>
           <div class="form-group row">
             <label for="nameEvento" class="col-form-label col-sm-4">Precio</label>
