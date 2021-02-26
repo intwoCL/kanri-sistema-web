@@ -26,7 +26,7 @@ class CartController extends Controller
     $cantidad = $request->input('quantity');
 
     $this->addProducto($p, $cantidad);
-    return back()->with('success','agregado');
+    return back()->with('success','Producto añadido');
   }
 
   // Crea la sesion de carrito y si no esta
@@ -96,7 +96,7 @@ class CartController extends Controller
     unset($cart['products'][$id]);
     $cart = $this->calculate($cart);
     $this->save($cart);
-    return back()->with('success','agregado');
+    return back()->with('success','Producto eliminado');
   }
 
 }

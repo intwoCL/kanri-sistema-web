@@ -41,7 +41,7 @@
                     <td>
                       <button class="btn btn-sm btn-danger" 
                       data-toggle="modal" 
-                      data-target="#addProduct"
+                      data-target="#deleteModal"
                       data-id="{{ $dp->id }}">
                       <i class="fa fa-trash"></i>
                       </button>
