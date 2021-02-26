@@ -79,7 +79,7 @@ Route::middleware('auth.user')->group(function () {
   Route::get('cart','Cart\CartController@index')->name('cart.index');
   // Route::get('cart/products','Cart\CartController@create')->name('cart.product');
   Route::post('cart','Cart\CartController@addProduct')->name('cart.product');
-  Route::delete('cart','Cart\CartController@addProduct')->name('cart.product');
+  Route::delete('cart','Cart\CartController@deleteProduct')->name('cart.product');
   Route::get('cart/delete','Cart\CartController@deleteCart')->name('cart.delete');
 
   // Route::post('cart/products','Cart\CartController@store')->name('cart.store');

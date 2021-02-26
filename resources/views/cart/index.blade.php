@@ -31,10 +31,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                  @php $id = 1; @endphp
-                  @foreach ($mis_productos as $mp)
+                  @php $id = 0; @endphp
+                  @foreach ($mis_productos as $key => $mp)
                   <tr>
-                    <td>{{ $mp['id'] }}</td>
+                    @php $id++; @endphp
+                    <td>{{ $id }}</td>
                     <td>
                       <div class="product-img">
                         <img src="{{ $mp['photo'] }}" alt="Product Image" class="img-size-50">
@@ -45,19 +46,14 @@
                     <td>$ {{ $mp['price'] }}</td>
                     <td>{{ $mp['quantity'] }}</td>
                     <td>$ {{ $mp['price'] * $mp['quantity'] }}</td>
-                    {{-- <td></td>
-                    <td></td> --}}
-                    {{-- <td>$ {{ $dp->getUnitValue() }}</td>
-                    <td>{{ $dp->quantity }}</td>
-                    <td>$ {{ $dp->getTotal() }}</td>
                     <td>
                       <button class="btn btn-sm btn-danger"
                       data-toggle="modal"
-                      data-target="#addProduct"
-                      data-id="{{ $dp->id }}">
+                      data-target="#deleteModal"
+                      data-id="{{ $key }}">
                       <i class="fa fa-trash"></i>
                       </button>
-                    </td> --}}
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>
@@ -158,12 +154,11 @@
         var button = $(event.relatedTarget);
         var modal = $(this);
         var id = button.data('id');
-        var budget_id = 1;
 
         var url = "{{route('cart.product')}}";
         modal.find('.modal-title').text('¿Desea eliminar producto?');
         modal.find('#inputDeleteId').val(id);
-        modal.find('#inputDeleteData').val(budget_id);
+        modal.find('#inputDeleteData').val('nada');
         modal.find('#formDelete').attr('action',url);
       });
   });

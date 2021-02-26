@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Cart;
 
 use App\Http\Controllers\Controller;
 use App\Models\Inventary\Product;
+use App\Models\System\Region;
 use Illuminate\Http\Request;
 use PhpParser\Node\NullableType;
+use PhpParser\Node\Stmt\Foreach_;
 
 class CartController extends Controller
 {
@@ -76,6 +78,25 @@ class CartController extends Controller
   public function deleteCart(){
     session([$this->name_sesion => null]);
     return back()->with('success','Eliminado');
+  }
+
+  // sobre escribre el total y devuelve el cart
+  public function calculate($cart){
+    $total = 0;
+    foreach ($cart['products'] as $p) {
+      $total += $p['price'] * $p['quantity'];
+    }
+    $cart['total'] = $total;
+    return $cart;
+  }
+
+  public function deleteProduct(Request $request){
+    $id = $request->input('id');
+    $cart = $this->getCart();
+    unset($cart['products'][$id]);
+    $cart = $this->calculate($cart);
+    $this->save($cart);
+    return back()->with('success','agregado');
   }
 
 }
