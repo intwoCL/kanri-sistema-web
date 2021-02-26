@@ -14,7 +14,7 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-header">
-              <h3 class="card title">Servicios</h3>
+              <h3>Servicios</h3>
             </div>
             <div class="card-body table-responsive">
               <table class="table table-bordered table-hover table-sm">
@@ -26,6 +26,7 @@
                   <th>Valor</th>
                   <th>Cantidad</th>
                   <th>Total</th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>

@@ -6,7 +6,7 @@
 @component('components.button._back')
   {{-- @slot('route', route('budget.show',$budget->id)) --}}
   {{-- @slot('color', 'dark') --}}
-  @slot('body', "Vista de presupuesto")
+  @slot('body', "Vista de carrito")
 @endcomponent
 <section class="content">
   <div class="container-fluid">

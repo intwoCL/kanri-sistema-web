@@ -138,4 +138,10 @@ class ProviderController extends Controller
       $provider = Provider::findOrFail($id);
       return view('order.index', compact('provider'));
     }
+
+    public function destroyProduct(Request $request, $id)
+    {
+      ProductProvider::where('provider_id',$id)->where('id',$request->input('id'))->delete();
+      return back()->with('success', trans('alert.delete'));
+    }
 }

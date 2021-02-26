@@ -14,7 +14,7 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-header">
-              <h3 class="card title">Productos</h3>
+              <h3>Productos</h3>
             </div>
             <div class="card-body table-responsive">
               <table class="table table-bordered table-hover table-sm">

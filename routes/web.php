@@ -40,7 +40,7 @@ Route::middleware('auth.user')->group(function () {
   Route::resource('provider', 'System\ProviderController');
   Route::get('/provider/{id}/products', 'System\ProviderController@products')->name('provider.products.create');
   Route::post('/provider/{id}/products', 'System\ProviderController@productStore')->name('provider.products.store');
-  Route::delete('/provider/{id}/products', 'System\ProviderController@productDestroy')->name('provider.products.destroy');
+  Route::delete('/provider/{id}/products', 'System\ProviderController@destroyProduct')->name('provider.products.destroy');
 
   //PurchaseOrder
 
