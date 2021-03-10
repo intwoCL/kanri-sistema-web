@@ -16,8 +16,9 @@ class CreateBiInvoiceBillTable extends Migration
         Schema::create('bi_invoice_bill', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id')->references('id')->on('sys_company');
-            $table->foreignId('client_id')->references('id')->on('sys_client');
-            $table->foreignId('product_id')->references('id')->on('in_provider');
+            $table->foreignId('client_id')->references('id')->on('sys_clients');
+            $table->foreignId('product_id')->references('id')->on('in_products');
+            $table->foreignId('user_id')->references('id')->on('sys_users');
             $table->datetime('issue_date');
             $table->integer('quantity');
             $table->double('price');
@@ -25,6 +26,7 @@ class CreateBiInvoiceBillTable extends Migration
             $table->double('total');
             $table->float('discount')->default(0);
             $table->float('iva')->default(0);
+            $table->integer('status');
             $table->timestamps();
         });
     }

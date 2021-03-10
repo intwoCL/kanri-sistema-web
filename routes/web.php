@@ -91,6 +91,12 @@ Route::middleware('auth.user')->group(function () {
   Route::post('budget/{id}/recalculated', 'Budget\BudgetController@recalculated')->name('budget.recalculated');
   Route::get('imprimir-pdf/{id}', 'Budget\BudgetController@imprimir')->name('imprimir');
   Route::get('mostrar-pdf/{id}', 'Budget\BudgetController@preview')->name('preview');
+
+  //Invoice-Bill
+  Route::namespace('Invoice')->group(function () {
+    Route::resource('invoice', 'InvoiceBillController');
+  });
+
 });
 // Route::get('login','Auth\AuthUserController@index')->name('index');
 // Route::post('app','Auth\AuthUserController@login')->name('login');

@@ -19,10 +19,11 @@
             </h3>
           </div>
           <div class="card-body">
-            <a href="{{ route('types.index') }}" class="nav-link"><i class="fa fa-user-tag fa-xs mr-2"></i> Tipo</a>
+            <a href="{{ route('types.index') }}" class="nav-link"><i class="fas fa-sort-amount-up-alt"></i> Tipo</a>
             <a href="{{ route('unit.index') }}" class="nav-link"><i class="fa fa-weight fa-xs mr-2"></i> Unidad</a>
             <a href="{{ route('category.index') }}" class="nav-link"><i class="fa fa-tags fa-xs mr-2"></i> Categoría</a>
-            <a href="{{ route('product.index') }}" class="nav-link"><i class="fa fa-tags fa-xs mr-2"></i> Producto</a>
+            <a href="{{ route('product.index') }}" class="nav-link"><i class="fas fa-box"></i>
+            Producto</a>
           </div>
         </div>
       </div>
@@ -35,8 +36,8 @@
             </h3>
           </div>
           <div class="card-body">
-            <a href="{{ route('client.index') }}" class="nav-link"><i class="fa fa-user fa-xs mr-2"></i> Clientes</a>
-            <a href="{{ route('user.index') }}" class="nav-link"><i class="fa fa-user fa-xs mr-2"></i> Usuarios</a>
+            <a href="{{ route('client.index') }}" class="nav-link"><i class="fas fa-user-tie"></i> Clientes</a>
+            <a href="{{ route('user.index') }}" class="nav-link"><i class="fas fa-user-circle"></i> Usuarios</a>
           </div>
         </div>
       </div>
@@ -49,7 +50,8 @@
             </h3>
           </div>
           <div class="card-body">
-            <a href="{{ route('budget.index') }}" class="nav-link"><i class="fa fa-user fa-xs mr-2"></i> Presupuesto</a>
+            <a href="{{ route('budget.index') }}" class="nav-link"><i class="fas fa-file-invoice"></i> Presupuesto</a>
+            <a href="{{ route('invoice.index') }}" class="nav-link"><i class="fas fa-receipt"></i> Boleta/Factura</a>
           </div>
         </div>
       </div>
