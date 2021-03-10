@@ -32,8 +32,8 @@
               <input type="hidden" name="id" value="{{ $budget->id }}">
               <button class="mb-2 btn btn-primary btn-sm" type="submit">Recalcular</button>
             </form>
-            <a href="{{ route('preview',$budget->id) }}" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa fa-file fa-xs mr-2"></i> Visualizar</a>
-            <a href="{{ route('imprimir',$budget->id) }}" class="nav-link"><i class="fa fa-user fa-xs mr-2"></i> Descargar</a>
+            <a href="{{ route('preview',$budget->id) }}" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa fa-file-pdf fa-xs mr-2"></i> Visualizar</a>
+            <a href="{{ route('imprimir',$budget->id) }}" class="nav-link"><i class="fa fa-cloud-download-alt fa-xs mr-2"></i> Descargar</a>
           </div>
         </div>
       </div>

@@ -4,9 +4,9 @@
 @endpush
 @section('content')
 @component('components.button._back')
-  @slot('route', route('provider.show',$provider->id))
-  @slot('color', 'dark')
-  @slot('body', "Vista de productos")
+  {{-- @slot('route', route('budget.show',$budget->id)) --}}
+  {{-- @slot('color', 'dark') --}}
+  @slot('body', "Vista de carrito")
 @endcomponent
 <section class="content">
   <div class="container-fluid">
@@ -14,32 +14,43 @@
         <div class="col-md-8">
           <div class="card">
             <div class="card-header">
-              <h3>Servicios</h3>
+              <h3>Productos</h3>
+              <a href="{{ route('cart.delete') }}" class="btn btn-danger float-right btn-sm">Eliminar</a>
             </div>
             <div class="card-body table-responsive">
               <table class="table table-bordered table-hover table-sm">
                 <thead>
                 <tr>
                   <th>#</th>
+                  <th>Imagen</th>
                   <th>Producto</th>
                   <th>Nombre producto</th>
                   <th>Valor</th>
-                  <th></th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
                 </tr>
                 </thead>
                 <tbody>
-                  @php $id = 1; @endphp
-                  @foreach ($provider->detailsProduct as $dp)
+                  @php $id = 0; @endphp
+                  @foreach ($mis_productos as $key => $mp)
                   <tr>
-                    <td>{{ $id++ }}</td>
-                    <td>{{ $dp->product->code }}</td>
-                    <td>{{ $dp->product->name }}</td>
-                    <td>$ {{ $dp->getPrice() }}</td>
+                    @php $id++; @endphp
+                    <td>{{ $id }}</td>
                     <td>
-                      <button class="btn btn-sm btn-danger" 
-                      data-toggle="modal" 
+                      <div class="product-img">
+                        <img src="{{ $mp['photo'] }}" alt="Product Image" class="img-size-50">
+                      </div>
+                    </td>
+                    <td>{{ $mp['code'] }}</td>
+                    <td>{{ $mp['name'] }}</td>
+                    <td>$ {{ $mp['price'] }}</td>
+                    <td>{{ $mp['quantity'] }}</td>
+                    <td>$ {{ $mp['price'] * $mp['quantity'] }}</td>
+                    <td>
+                      <button class="btn btn-sm btn-danger"
+                      data-toggle="modal"
                       data-target="#deleteModal"
-                      data-id="{{ $dp->id }}">
+                      data-id="{{ $key }}">
                       <i class="fa fa-trash"></i>
                       </button>
                     </td>
@@ -47,6 +58,9 @@
                   @endforeach
                 </tbody>
               </table>
+            </div>
+            <div class="card-footer text-right">
+              <h2>Total $ {{ $cart['total'] ?? 0 }}</h2>
             </div>
           </div>
         </div>
@@ -110,8 +124,8 @@
     </div>
   </div>
 </section>
-@include('system.provider._modal_add_product')
-@include('system.provider._delete')
+@include('budget._modal_add_product')
+@include('budget._delete')
 @endsection
 @push('javascript')
 <script>
@@ -122,27 +136,29 @@
 
       var inputPrice = button.data('price');
       var inputIdProduct = button.data('id');
+      var inputName = button.data('name');
 
-      var url = "{{route('provider.products.store',[$provider->id])}}";
+      var url = "{{route('cart.product')}}";
       modal.find('.modal-title').text('¿Desea agregar este producto?');
       console.log(inputPrice);
       console.log("here");
 
       modal.find('#inputIdProduct').val(inputIdProduct);
+      modal.find('#inputPrice').val(inputPrice);
+      modal.find('#inputQuantity').val(1).change();
       modal.find('#formAdd').attr('action',url);
-      //totalNumber()
+      // totalNumber();
     });
 
     $('#deleteModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var modal = $(this);
         var id = button.data('id');
-        var provider_id = {{ $provider->id }};
 
-        var url = "{{route('provider.products.destroy',$provider->id)}}";
+        var url = "{{route('cart.product')}}";
         modal.find('.modal-title').text('¿Desea eliminar producto?');
         modal.find('#inputDeleteId').val(id);
-        modal.find('#inputDeleteData').val(provider_id);
+        modal.find('#inputDeleteData').val('nada');
         modal.find('#formDelete').attr('action',url);
       });
   });

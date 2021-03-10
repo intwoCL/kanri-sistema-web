@@ -44,4 +44,10 @@ class OrderDetailController extends Controller
       return $th;
     }
   }
+
+  public function destroy($id)
+  {
+    OrderDetail::where('id',$id)->delete();
+    return back()->with('success', trans('alert.delete'));
+  }
 }
