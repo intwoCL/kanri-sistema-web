@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\System\User;
 use App\Models\System\Client;
 use App\Models\Inventary\Product;
+use App\Models\System\Company;
+use App\Presenters\InvoicePresenter;
 use App\Services\ConvertDatetime;
 use App\Services\Currency;
 
@@ -26,6 +28,11 @@ class InvoiceBill extends Model
     public function user()
     {
       return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function company()
+    {
+      return $this->belongsTo(Company::class,'company_id');
     }
   
     public function client()
@@ -52,6 +59,11 @@ class InvoiceBill extends Model
 
     public function getTotal(){
       return (new Currency($this->total))->money();
+    }
+
+    public function presenter()
+    {
+      return new InvoicePresenter($this);
     }
 
 }

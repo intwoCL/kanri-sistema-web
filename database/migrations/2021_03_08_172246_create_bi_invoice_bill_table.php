@@ -16,14 +16,13 @@ class CreateBiInvoiceBillTable extends Migration
         Schema::create('bi_invoice_bill', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id')->references('id')->on('sys_company');
-            $table->foreignId('client_id')->references('id')->on('sys_clients');
-            $table->foreignId('product_id')->references('id')->on('in_products');
+            $table->integer('client_id')->nullable();
             $table->foreignId('user_id')->references('id')->on('sys_users');
             $table->datetime('issue_date');
-            $table->integer('quantity');
-            $table->double('price');
-            $table->double('subtotal');
-            $table->double('total');
+            $table->integer('quantity')->default(0);
+            $table->double('price')->default(0);
+            $table->double('subtotal')->default(0);
+            $table->double('total')->default(0);
             $table->float('discount')->default(0);
             $table->float('iva')->default(0);
             $table->integer('status');

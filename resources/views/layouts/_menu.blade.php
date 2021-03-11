@@ -43,7 +43,7 @@
         </li>
         <li class="bg-danger" >
           <a href="{{ route('signOut') }}" class="nav-link">
-            <i class="nav-icon fas fa-graduation-cap mr-2"></i>
+            <i class="fas fa-times-circle"></i>
             <p>Salir</p>
           </a>
         </li>

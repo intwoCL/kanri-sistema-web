@@ -51,7 +51,6 @@
           </div>
           <div class="card-body">
             <a href="{{ route('budget.index') }}" class="nav-link"><i class="fas fa-file-invoice"></i> Presupuesto</a>
-            <a href="{{ route('invoice.index') }}" class="nav-link"><i class="fas fa-receipt"></i> Boleta/Factura</a>
           </div>
         </div>
       </div>

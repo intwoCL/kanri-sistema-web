@@ -33,7 +33,6 @@ class InvoiceBillController extends Controller
     {
       $clients = Client::get();
       $company = Company::get();
-      $products = Product::get();
       $status = InvoiceBill::STATE;
       return view('invoice.create', compact('clients','company','products','status'));
     }
@@ -46,7 +45,15 @@ class InvoiceBillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $invoice = new InvoiceBill();
+        $invoice->company_id = !empty($request->input('company_id')) ? $request->input('company_id') : null;
+        $invoice->client_id = !empty($request->input('client_id')) ? $request->input('client_id') : null;
+        $invoice->user_id = current_user()->id;
+        $invoice->issue_date = $request->input('issue_date');
+        $invoice->iva = Config::IVA();
+        $invoice->status = $request->input('status');
+        $invoice->save();
+        return redirect()->route('invoice.index')->with('success','alert.success');
     }
 
     /**
@@ -69,7 +76,10 @@ class InvoiceBillController extends Controller
      */
     public function edit($id)
     {
-        //
+      $company = Company::get();
+      $clients = Client::get();
+      $invoice = InvoiceBill::findOrFail($id);
+      return view('invoice.edit',compact('company','clients','invoice'));
     }
 
     /**
@@ -81,7 +91,15 @@ class InvoiceBillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      try {
+        $invoice = InvoiceBill::findOrFail($id);
+        $invoice->company_id = !empty($request->input('company_id')) ? $request->input('company_id') : null;
+        $invoice->client_id = !empty($request->input('client_id')) ? $request->input('client_id') : null;
+        $invoice->update();
+        return redirect()->route('invoice.index')->with('success',trans('alert.update'));
+      } catch (\Throwable $th) {
+        return back()->with('warning',trans('alert.warning'));
+      }
     }
 
     /**
@@ -92,6 +110,7 @@ class InvoiceBillController extends Controller
      */
     public function destroy($id)
     {
-        //
+      InvoiceBill::where('id',$id)->delete();
+      return back()->with('sucess',trans('alert.delete'));
     }
 }
