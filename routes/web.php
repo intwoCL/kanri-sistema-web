@@ -87,6 +87,10 @@ Route::middleware('auth.user')->group(function () {
     Route::get('mostrar-pdf/{id}', 'BudgetController@preview')->name('preview');
   });
 
+  //Invoice-Bill
+  Route::namespace('Invoice')->group(function () {
+    Route::resource('invoice', 'InvoiceBillController');
+  });
 });
 // Route::get('login','Auth\AuthUserController@index')->name('index');
 // Route::post('app','Auth\AuthUserController@login')->name('login');
