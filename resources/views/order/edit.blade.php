@@ -50,7 +50,7 @@
                       <td>{{ $do->quantity }}</td>
                       <td>{{ $do->getTotal() }}</td>
                       <td>
-                        <input type="text" class="form-control {{ $errors->has('new_quantity') ? 'is_invalid' : '' }}" name="new_quantity[]" placeholder="0">
+                        <input type="text" class="form-control {{ $errors->has('new_quantity') ? 'is_invalid' : '' }}" name="new_quantity" placeholder="0">
                         {!! $errors->first('new_quantity','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                       </td>
                     </tr>

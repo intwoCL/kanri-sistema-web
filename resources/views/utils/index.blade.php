@@ -51,6 +51,7 @@
           </div>
           <div class="card-body">
             <a href="{{ route('budget.index') }}" class="nav-link"><i class="fas fa-file-invoice"></i> Presupuesto</a>
+            <a href="{{ route('cart.index') }}" class="nav-link"><i class="fa fa-user fa-xs mr-2"></i> Carrito</a>
           </div>
         </div>
       </div>

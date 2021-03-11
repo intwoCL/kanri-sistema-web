@@ -11,7 +11,7 @@
       <div class="col-md-6">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Nuevo presupuesto</h3>
+            <h3 class="card-title">Nuevo empresa</h3>
           </div>
           <form class="form-horizontal" method="POST" action="{{ route('company.update') }}" enctype="multipart/form-data">
             @csrf

@@ -48,8 +48,6 @@
                 <th>Nombre producto</th>
                 <th>Tipo</th>
                 <th>Valor</th>
-                <th>Cantidad</th>
-                <th>Total</th>
               </tr>
               </thead>
               <tbody>
@@ -60,9 +58,7 @@
                   <td>{{ $dp->product->code }}</td>
                   <td>{{ $dp->product->name }}</td>
                   <td>{{ $dp->product->productType->name }}</td>
-                  <td>{{ $dp->getPrice() }}</td>
-                  <td>{{ $dp->quantity }}</td>
-                  <td>{{ $dp->getTotal() }}</td>
+                  <td>$ {{ $dp->getPrice() }}</td>
                 </tr>
                 @endforeach
               </tbody>

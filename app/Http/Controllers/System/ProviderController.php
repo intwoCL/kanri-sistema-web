@@ -126,8 +126,8 @@ class ProviderController extends Controller
       $proprov->provider_id = $id;
       $proprov->product_id = $request->input('product_id');
       $proprov->price = $request->input('unit_value');
-      $proprov->quantity = $request->input('quantity');
-      $proprov->total = $proprov->price * $proprov->quantity;
+      // $proprov->quantity = $request->input('quantity');
+      // $proprov->total = $proprov->price * $proprov->quantity;
       $proprov->save();
       return back()->with('success', trans('alert.success'));
       // return $request;
@@ -137,5 +137,11 @@ class ProviderController extends Controller
     {
       $provider = Provider::findOrFail($id);
       return view('order.index', compact('provider'));
+    }
+
+    public function destroyProduct(Request $request, $id)
+    {
+      ProductProvider::where('provider_id',$id)->where('id',$request->input('id'))->delete();
+      return back()->with('success', trans('alert.delete'));
     }
 }

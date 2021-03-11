@@ -28,7 +28,7 @@ class ProductProvider extends Model
     return (new Currency($this->price))->money();
   }
 
-  public function getTotal(){
-    return (new Currency($this->total))->money();
-  }
+  // public function getTotal(){
+  //   return (new Currency($this->total))->money();
+  // }
 }
