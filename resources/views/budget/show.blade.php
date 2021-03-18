@@ -34,6 +34,7 @@
             </form>
             <a href="{{ route('preview',$budget->id) }}" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa fa-file-pdf fa-xs mr-2"></i> Visualizar</a>
             <a href="{{ route('imprimir',$budget->id) }}" class="nav-link"><i class="fa fa-cloud-download-alt fa-xs mr-2"></i> Descargar</a>
+            <a href="{{ route('excel') }}" class="nav-link"><i class="fas fa-file-excel"></i> Excel</a>
           </div>
         </div>
       </div>

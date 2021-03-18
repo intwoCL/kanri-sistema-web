@@ -85,6 +85,7 @@ Route::middleware('auth.user')->group(function () {
     Route::post('budget/{id}/recalculated', 'BudgetController@recalculated')->name('budget.recalculated');
     Route::get('imprimir-pdf/{id}', 'BudgetController@imprimir')->name('imprimir');
     Route::get('mostrar-pdf/{id}', 'BudgetController@preview')->name('preview');
+    Route::get('exportar-excel', 'BudgetController@exportExcel')->name('excel');
   });
 
   //Invoice-Bill
