@@ -15,7 +15,11 @@
           <div class="card">
             <div class="card-header">
               <h3>Productos</h3>
-              <a href="{{ route('cart.delete') }}" class="btn btn-danger float-right btn-sm">Eliminar</a>
+              <button class="btn btn-sm btn-success"
+              data-toggle="modal"
+              data-target="#addInvoice"
+              >Comprar</button>
+              <a href="{{ route('cart.delete') }}" class="btn btn-danger float-right btn-sm">Vaciar carrito</a>
             </div>
             <div class="card-body table-responsive">
               <table class="table table-bordered table-hover table-sm">
@@ -126,8 +130,28 @@
 </section>
 @include('budget._modal_add_product')
 @include('budget._delete')
+@include('partials._modal_add_invoice')
 @endsection
 @push('javascript')
+<script>
+    $(function () {
+    $('#addInvoice').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+
+      var inputIdInvoice = button.data('id');
+
+      var url = "{{route('invoice.store')}}";
+      modal.find('.modal-title').text('Formulario');
+      console.log("here");
+
+      modal.find('#inputIdInvoice').val(inputIdInvoice);
+      modal.find('#formAdd').attr('action',url);
+      // totalNumber();
+    });
+  });
+</script>
+
 <script>
   $(function () {
     $('#addProduct').on('show.bs.modal', function (event) {

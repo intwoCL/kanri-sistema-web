@@ -10,6 +10,7 @@ use App\Models\System\Client;
 use App\Models\System\Company;
 use App\Services\Config;
 use Laravel\Ui\Presets\React;
+use Rap2hpoutre\FastExcel\FastExcel;
 
 class BudgetController extends Controller
 {
@@ -147,6 +148,11 @@ class BudgetController extends Controller
       // return view('budget.budget.show', compact('budget'));
       $pdf = \PDF::loadView('pdf.budget', compact('budget','company'));
       return $pdf->stream();
+    }
+
+    public function exportExcel()
+    {
+      return (new FastExcel(Budget::all()))->download('presupuesto.xlsx');
     }
 
 }

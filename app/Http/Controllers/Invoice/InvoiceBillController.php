@@ -20,8 +20,10 @@ class InvoiceBillController extends Controller
      */
     public function index()
     {
+      $clients = Client::get();
+      $company = Company::get();
       $invoice = InvoiceBill::get();
-      return view('invoice.index', compact('invoice'));
+      return view('cart.index', compact('clients','company','invoice'));
     }
 
     /**
@@ -32,9 +34,9 @@ class InvoiceBillController extends Controller
     public function create()
     {
       $clients = Client::get();
-      $company = Company::get();
+      $company = Company::first();
       $status = InvoiceBill::STATE;
-      return view('invoice.create', compact('clients','company','products','status'));
+      return view('partials._modal_add_invoice', compact('clients','company','status'));
     }
 
     /**
@@ -53,7 +55,7 @@ class InvoiceBillController extends Controller
         $invoice->iva = Config::IVA();
         $invoice->status = $request->input('status');
         $invoice->save();
-        return redirect()->route('invoice.index')->with('success','alert.success');
+        return redirect()->route('cart.index')->with('success','alert.success');
     }
 
     /**

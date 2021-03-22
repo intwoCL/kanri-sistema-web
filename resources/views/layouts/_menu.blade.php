@@ -30,7 +30,7 @@
 
         <li class="nav-item {{ open('provider*') }}">
           <a href="{{ route('provider.index') }}" class="nav-link">
-            <i class="nav-icon fab fa-chromecast"></i>
+            <i class="fas fa-people-carry"></i>
             <p>Proveedor</p>
           </a>
         </li>
