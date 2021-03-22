@@ -17,9 +17,9 @@ class CreateBuProductBudgetDetailTable extends Migration
             $table->id();
             $table->foreignId('budget_id')->references('id')->on('bu_budgets');
             $table->foreignId('product_id')->references('id')->on('in_products');
-            $table->integer('unit_value');
+            $table->double('unit_value')->default(0);
             $table->integer('quantity');
-            $table->integer('total');
+            $table->double('total')->default(0);
             $table->string('product_name');
             $table->timestamps();
             $table->softDeletes();

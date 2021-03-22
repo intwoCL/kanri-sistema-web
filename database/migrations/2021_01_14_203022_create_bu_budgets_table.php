@@ -21,7 +21,7 @@ class CreateBuBudgetsTable extends Migration
             $table->datetime('finish_date');
             $table->string('glosa');
             $table->double('subtotal')->default(0);
-            $table->float('iva');
+            $table->float('iva')->default(0);
             $table->double('total')->default(0);
             $table->integer('status');
             $table->integer('count_email');

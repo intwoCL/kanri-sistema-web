@@ -17,7 +17,7 @@ class CreateBuServiceBudgetDetailTable extends Migration
             $table->id();
             $table->foreignId('budget_id')->references('id')->on('bu_budgets');
             $table->string('name_service');
-            $table->integer('unique_value');
+            $table->double('unique_value')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

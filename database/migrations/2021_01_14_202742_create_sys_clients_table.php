@@ -19,7 +19,7 @@ class CreateSysClientsTable extends Migration
           $table->string('names');
           $table->string('surnames');
           $table->string('email');
-          $table->integer('phone');
+          $table->string('phone');
           $table->timestamps();
           $table->softDeletes();
         });

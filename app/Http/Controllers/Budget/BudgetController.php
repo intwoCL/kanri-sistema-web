@@ -46,7 +46,6 @@ class BudgetController extends Controller
     public function store(Request $request)
     {
       $bud = new Budget();
-      // $bud->user_id = current_user()->id;
       $bud->user_id = current_user()->id;
       $bud->client_id = !empty($request->input('client_id')) ? $request->input('client_id') : null;
       $bud->start_date = $request->input('start_date');
@@ -97,15 +96,10 @@ class BudgetController extends Controller
       try {
         $budget = Budget::findOrFail($id);
         $budget->client_id = !empty($request->input('client_id')) ? $request->input('client_id') : null;
-        // $budget->client_id = $request->input('client_id');
         $budget->start_date = $request->input('start_date');
         $budget->finish_date = $request->input('finish_date');
         $budget->glosa = $request->input('glosa');
-        // $budget->subtotal = $request->input('subtotal');
-        // $budget->iva = $request->input('iva');
-        // $budget->total = $request->input('total');
         $budget->status = $request->input('status');
-        // $budget->count_email = $request->input('count_email');
         $budget->update();
         return Redirect()->route('budget.index')->with('success', trans('alert.success'));
       } catch (\Throwable $th) {

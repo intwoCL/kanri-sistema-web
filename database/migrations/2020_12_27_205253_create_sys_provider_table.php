@@ -20,7 +20,7 @@ class CreateSysProviderTable extends Migration
             $table->string('surnames');
             $table->string('address');
             $table->string('email');
-            $table->integer('phone');
+            $table->string('phone');
             $table->timestamps();
             $table->softDeletes();
         });

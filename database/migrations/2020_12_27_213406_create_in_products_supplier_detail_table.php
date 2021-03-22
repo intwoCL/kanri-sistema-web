@@ -17,7 +17,7 @@ class CreateInProductsSupplierDetailTable extends Migration
             $table->id();
             $table->foreignId('provider_id')->references('id')->on('sys_provider');
             $table->foreignId('product_id')->references('id')->on('in_products');
-            $table->integer('price');
+            $table->double('price')->default(0);
             $table->boolean('active')->default(true);
             $table->timestamps();
             $table->softDeletes();

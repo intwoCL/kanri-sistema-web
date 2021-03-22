@@ -65,7 +65,7 @@ class ProductController extends Controller
     }
 
     $prod->save();
-    return Redirect()->route('product.index')->with('success', trans('alert.success'));
+    return redirect()->route('product.index')->with('success', trans('alert.success'));
 
   }
 
@@ -127,9 +127,9 @@ class ProductController extends Controller
         $prod->photo= $filename;
       }
       $prod->update();
-      return Redirect()->route('product.index')->with('success',trans('alert.update'));
+      return redirect()->route('product.index')->with('success',trans('alert.update'));
     } catch (\Throwable $th) {
-      return Redirect()->route('product.index')->with('warning',trans('alert.warning'));
+      return redirect()->route('product.index')->with('warning',trans('alert.warning'));
     }
   }
 
@@ -142,6 +142,6 @@ class ProductController extends Controller
   public function destroy($id)
   {
     Product::where('id',$id)->delete();
-    return Redirect()->route('product.index')->with('success', trans('alert.delete'));
+    return redirect()->route('product.index')->with('success', trans('alert.delete'));
   }
 }
