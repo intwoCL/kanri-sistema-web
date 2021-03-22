@@ -13,7 +13,7 @@
           <div class="card-header">
             <h3 class="card-title">Actualizar tipo</h3>
           </div>
-          <form class="form-horizontal" method="POST" action="{{ route('types.update', $type->id) }}" enctype="multipart/form-data">
+          <form class="form-horizontal form-submit" method="POST" action="{{ route('types.update', $type->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="card-body">

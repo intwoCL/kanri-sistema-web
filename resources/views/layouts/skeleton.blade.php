@@ -26,5 +26,10 @@
   <script src="{{ asset('js/app.js') }}"></script>
   @include('layouts._toast')
   @stack('javascript')
+  <script>
+  $('.form-submit').on('submit', function(){
+    $('.form-submit').find('button').attr('disabled','true');
+  });
+  </script>
 </body>
 </html>

@@ -15,6 +15,13 @@ Creado por (Justice2197)[https://github.com/Justice2197]
 
 
 
+# Instalar paquetes del proyecto
+
+composer install
+
+npm install
+
+
 # Como iniciar el proyecto
 ```
 php artisan migrate:fresh --seed
@@ -26,6 +33,8 @@ php artisan migrate:refresh --seed
 composer dump-autoload
 
 php artisan cities:import
+
+npm run dev
 ```
 
 Usuarios
