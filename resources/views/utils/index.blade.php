@@ -19,11 +19,11 @@
             </h3>
           </div>
           <div class="card-body">
-            <a href="{{ route('types.index') }}" class="nav-link"><i class="fas fa-sort-amount-up-alt"></i> Tipo</a>
-            <a href="{{ route('unit.index') }}" class="nav-link"><i class="fa fa-weight fa-xs mr-2"></i> Unidad</a>
-            <a href="{{ route('category.index') }}" class="nav-link"><i class="fa fa-tags fa-xs mr-2"></i> Categoría</a>
+            <a href="{{ route('types.index') }}" class="nav-link"><i class="fas fa-sort-amount-up-alt"></i> {{ trans('t.user.products.type') }}</a>
+            <a href="{{ route('unit.index') }}" class="nav-link"><i class="fa fa-weight fa-xs mr-2"></i> {{ trans('t.user.products.unit') }}</a>
+            <a href="{{ route('category.index') }}" class="nav-link"><i class="fa fa-tags fa-xs mr-2"></i> {{ trans('t.user.products.category') }}</a>
             <a href="{{ route('product.index') }}" class="nav-link"><i class="fas fa-box"></i>
-            Producto</a>
+            {{ trans('t.user.products.product') }}</a>
           </div>
         </div>
       </div>
@@ -36,8 +36,8 @@
             </h3>
           </div>
           <div class="card-body">
-            <a href="{{ route('client.index') }}" class="nav-link"><i class="fas fa-user-tie"></i> Clientes</a>
-            <a href="{{ route('user.index') }}" class="nav-link"><i class="fas fa-user-circle"></i> Usuarios</a>
+            <a href="{{ route('client.index') }}" class="nav-link"><i class="fas fa-user-tie"></i> {{ trans('t.user.system.clients') }}</a>
+            <a href="{{ route('user.index') }}" class="nav-link"><i class="fas fa-user-circle"></i> {{ trans('t.user.system.users') }}</a>
           </div>
         </div>
       </div>
@@ -50,8 +50,8 @@
             </h3>
           </div>
           <div class="card-body">
-            <a href="{{ route('budget.index') }}" class="nav-link"><i class="fas fa-file-invoice"></i> Presupuesto</a>
-            <a href="{{ route('cart.index') }}" class="nav-link"><i class="fas fa-shopping-cart"></i> Carrito</a>
+            <a href="{{ route('budget.index') }}" class="nav-link"><i class="fas fa-file-invoice"></i> {{ trans('t.user.quote.budget') }}</a>
+            <a href="{{ route('cart.index') }}" class="nav-link"><i class="fas fa-shopping-cart"></i> {{ trans('t.user.quote.cart') }}</a>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
             </h3>
           </div>
           <div class="card-body">
-            <a href="{{ route('company.index') }}" class="nav-link"><i class="fa fa-cog fa-xs mr-2"></i> Mi empresa</a>
+            <a href="{{ route('company.index') }}" class="nav-link"><i class="fa fa-cog fa-xs mr-2"></i> {{ trans('t.user.settings.my_company') }}</a>
           </div>
         </div>
       </div>

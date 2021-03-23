@@ -102,7 +102,6 @@ class PurchaseOrderController extends Controller
       // return $request;
       try {
         $order = PurchaseOrder::findOrFail($purchase_order_id);
-        // $product = Product::findOrFail($product_id);
         $details = OrderDetail::findOrFail($id);
         $audit = new AuditProductOrder();
 

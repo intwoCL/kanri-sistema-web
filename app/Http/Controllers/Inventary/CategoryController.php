@@ -40,8 +40,6 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
       $c = new Category();
-      // $c->name = $request->name;
-      // $c->name = $request['name'];
       $c->name = $request->input('name');
       $c->save();
       // return back()->with('success','Se ha creado');

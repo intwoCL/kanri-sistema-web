@@ -1,6 +1,8 @@
 <?php
 
 return [
+  'id' => 'Id',
+  'name' => 'Nombre',
   'spanish' => 'Español',
   'english' => 'Inglés',
   'yes' => 'Si',
@@ -91,52 +93,53 @@ return [
   ],
 
   'user'=>[
-  'index' => [
-    'table_name' => 'Nombre completo',
-    'table_email' => 'Correo',
-    'table_run' => 'Rut',
-    'table_privileges' => 'Privilegios',
-    'table_languages' => 'Idioma',
-    'title' => 'Panel de usuarios',
-    'list' => 'Lista de todos los usuarios',
-    'admin' => '¿Es administrador?',
-    'specialist' => '¿Es especialista?',
+  'products'=> [
+    'type' => 'Tipo',
+    'unit' => 'Unidad',
+    'category' => 'Categoría',
+    'product' => 'Producto',
   ],
-  'create'=>[
-    'title'=> 'Crear nuevo usuario',
+  'system'=> [
+    'clients' => 'Clientes',
+    'users' => 'Usuarios',
   ],
-  'edit'=> [
-    'edit' => 'Editar',
-    'title' => 'Editar usuario',
+  'quote'=> [
+    'budget' => 'Presupuesto',
+    'cart' => 'Carrito',
   ],
-  'show' =>[
-    'title' => 'Vista de usuario',
+  'settings'=> [
+    'my_company' => 'Mi empresa',
   ],
-  'profile'=>[
-    'first_name' => 'Nombres',
-    'last_name' => 'Apellidos',
-    'email' => 'Email',
-    'run' => 'Rut',
-    'lang' => 'Idioma',
-    'profile_edit' => "Editar Perfil",
-    'password' => 'Contraseña',
-    'photo' => 'Foto',
-    'specialty' => 'Especialidad',
+  'provider'=> [
+    'rut' => 'RUT',
+    'full_name' => 'Nombre completo',
+    'address' => 'Dirección',
+    'phone' => 'Télefono'
   ],
-  'calendar'=> [
-    'panel_calendar' => 'Panel de calendarios',
-    'agenda' => 'Agendar hora',
-    'historial' => 'Historial',
-    'title' => 'Formulario de Calendario',
-    'hour' => 'Hora',
-    'date' => 'Fecha',
-    'comment_in' => 'Comentario de entrada',
-    'comment_out' => 'Comentario de salida',
-    'pending' => 'Pendiente',
-    'complete' => 'Atendido',
-    'canceled' => 'Cancelado',
-    'information' => 'Información',
-    'status' => 'Estado',
+  'client'=> [
+    'email' => 'Correo electrónico',
+  ],
+  'users'=> [
+    'role' => 'Rol',
+  ],
+  'budget' => [
+    'user' => 'Usuario',
+    'client' => 'Cliente',
+    'start_date' => 'Fecha inicio',
+    'finish_date' => 'Fecha termino',
+    'glosa' => 'Comentario',
+    'subtotal' => 'Subtotal',
+    'total' => 'Total',
+    'status'=> 'Estado',
+  ],
+  'order'=> [
+    'order_code' => 'Código orden',
+    'provider'=> 'Provider',
+    'issue_date' => 'Fecha emisión',
+    'delivery_date' => 'Fecha entrega',
+    'comment' => 'Comentario',
+    'discount' => 'Descuento',
+    'iva' => 'IVA',
   ],
   ],
 ];

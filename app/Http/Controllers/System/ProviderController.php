@@ -126,8 +126,6 @@ class ProviderController extends Controller
       $proprov->provider_id = $id;
       $proprov->product_id = $request->input('product_id');
       $proprov->price = $request->input('unit_value');
-      // $proprov->quantity = $request->input('quantity');
-      // $proprov->total = $proprov->price * $proprov->quantity;
       $proprov->save();
       return back()->with('success', trans('alert.success'));
       // return $request;

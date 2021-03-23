@@ -65,7 +65,7 @@
               </div>
 
               <div class="row form-group row">
-                <label for="formGroupExampleInput" class="col-sm-4">Regón</label>
+                <label for="formGroupExampleInput" class="col-sm-4">Región</label>
                 <div class="col-sm-8">
                   <select class="custom-select" id="select_region" name="region"   onChange="CargarComunas()">
                   </select>
@@ -141,7 +141,7 @@
               </div>
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-success float-right">Guardar</button>
+              <button type="submit" class="btn btn-success float-right">{{ trans('button.save') }}</button>
             </div>
           </form>
         </div>

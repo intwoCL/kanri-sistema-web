@@ -93,22 +93,5 @@ Route::middleware('auth.user')->group(function () {
     Route::resource('invoice', 'InvoiceBillController');
   });
 });
-// Route::get('login','Auth\AuthUserController@index')->name('index');
-// Route::post('app','Auth\AuthUserController@login')->name('login');
-// Route::get('category', 'Inventary\CategoryController@index')->name('category.index');
-// Route::get('category/create', 'Inventary\CategoryController@create')->name('category.create');
-// Route::post('category', 'Inventary\CategoryController@store')->name('category.store');
-// Route::get('cart/products','Cart\CartController@create')->name('cart.product');
-// Route::post('cart/products','Cart\CartController@store')->name('cart.store');
 
-// Route::namespace('Inventary')->group(function () {
-//   Route::prefix('evento')->group(function () {
-
-//   });
-//   Route::get('category', 'CategoryController@index')->name('category.index');
-//   Route::get('category/create', 'CategoryController@create')->name('category.create');
-//   Route::post('category', 'CategoryController@store')->name('category.store');
-// });
-
-// Route::resource('category', 'Inventary\CategoryController',['except'=>['destroy','show','edit','update']]);
 

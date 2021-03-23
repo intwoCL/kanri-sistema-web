@@ -35,7 +35,8 @@ class OrderDetailController extends Controller
       $orderDetail->save();
 
       $order->subtotal += $orderDetail->total; // no aplica iva
-      $order->total += $orderDetail->total + (  $orderDetail->total * ($order->iva/100) ); // total = total + (subtotal + (subtotal * 0.19))
+      $order->total += $orderDetail->total + (  $orderDetail->total * ($order->iva/100) ); 
+      // total = total + (subtotal + (subtotal * 0.19))
       $order->update();
 
       return back()->with('success',trans('alert.success'));

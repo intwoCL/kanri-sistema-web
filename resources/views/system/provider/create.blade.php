@@ -60,7 +60,7 @@
               </div>
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-success float-right">Guardar</button>
+              <button type="submit" class="btn btn-success float-right">{{ trans('button.save') }}</button>
             </div>
           </form>
         </div>

@@ -14,7 +14,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Lista de proveedores</h3>
-          <a href="{{ route('provider.create') }}" class="btn btn-primary float-right btn-sm">Nuevo</a>
+          <a href="{{ route('provider.create') }}" class="btn btn-success float-right btn-sm">{{ trans('button.new') }}</a>
         </div>
         <div class="card-body table-responsive">
         <table class="table table-bordered table-hover table-sm">
@@ -40,13 +40,13 @@
               <td>{{ $provider->email }}</td>
               <td>{{ $provider->phone }}</td>
               <td>
-                <a href="{{ route('provider.edit',$provider->id) }}">Editar</a>
+                <a href="{{ route('provider.edit',$provider->id) }}">{{ trans('button.edit') }}</a>
               </td>
               <td>
                 <form method="POST" action="{{ route('provider.destroy', $provider->id) }}">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash"></i></button>
                 </form>
               </td>
             </tr>

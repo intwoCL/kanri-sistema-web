@@ -14,7 +14,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Lista de orden de compra</h3>
-          <a href="{{ route('order.create',$provider->id) }}" class="btn btn-primary float-right btn-sm">Nuevo</a>
+          <a href="{{ route('order.create',$provider->id) }}" class="btn btn-success float-right btn-sm">{{ trans('button.new') }}</a>
         </div>
         <div class="card-body table-responsive">
         <table class="table table-bordered table-hover table-sm">
@@ -61,7 +61,7 @@
                 <form method="POST" action="{{ route('order.destroy', [$do->provider->id,$do->id]) }}">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                <button class="btn btn-danger btn-sm" type="submit"><i class="fas fa-trash"></i></button>
                 </form>
               </td>
             </tr>
