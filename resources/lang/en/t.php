@@ -2,10 +2,10 @@
 
 return [
   'id' => 'Id',
-  'name' => 'Nombre',
-  'spanish' => 'Español',
-  'english' => 'Inglés',
-  'yes' => 'Si',
+  'name' => 'Name',
+  'spanish' => 'Spanish',
+  'english' => 'English',
+  'yes' => 'Yes',
   'no' => 'No',
   'activity_list' => 'Lista de todas las actividades',
   'create_activity' => 'Crear nueva actividad',
@@ -25,6 +25,9 @@ return [
   'welcome' => 'Bienvenido',
   'information' => 'Cambie la información sobre ti en esta página.',
   'profile' => 'Perfil',
+  'edit' => 'Editar',
+  'view' => 'Vista',
+  'trash' => 'Eliminar',
   'login' => [
   'title' => 'Bienvenidos a ',
   'email' => 'Correo electrónico',
@@ -41,13 +44,13 @@ return [
   ]
   ],
   'days' =>[
-  '1' => 'lunes',
-  '2' => 'martes',
-  '3' => 'miercoles',
+  '1' => 'monday',
+  '2' => 'tuesday',
+  '3' => 'wednesday',
   '4' => 'jueves',
-  '5' => 'viernes',
-  '6' => 'sábado',
-  '7' => 'domingo'
+  '5' => 'thursday',
+  '6' => 'saturdat',
+  '7' => 'sunday'
   ],
   'activity' => [
   'create' => [
@@ -83,60 +86,59 @@ return [
 
   ],
 
-  'title' =>[
-    'product' => 'PRODUCTOS',
-    'system' => 'SISTEMA',
-    'quote' => 'COTIZACIÓN',
-    'settings' => 'CONFIGURACIÓN',
+  'content' =>[
+  'create' => [
+    'title' => 'Crear contenido'
+  ]
   ],
 
   'user'=>[
   'products'=> [
-    'type' => 'Tipo',
-    'unit' => 'Unidad',
-    'category' => 'Categoría',
-    'product' => 'Producto',
+    'type' => 'Type',
+    'unit' => 'Unit',
+    'category' => 'Category',
+    'product' => 'Product',
   ],
   'system'=> [
-    'clients' => 'Clientes',
-    'users' => 'Usuarios',
+    'clients' => 'Clients',
+    'users' => 'Users',
   ],
   'quote'=> [
-    'budget' => 'Presupuesto',
-    'cart' => 'Carrito',
+    'budget' => 'Budget',
+    'cart' => 'Carrt',
   ],
   'settings'=> [
-    'my_company' => 'Mi empresa',
+    'my_company' => 'My company',
   ],
   'provider'=> [
     'rut' => 'RUT',
-    'full_name' => 'Nombre completo',
-    'address' => 'Dirección',
-    'phone' => 'Télefono'
+    'full_name' => 'Full name',
+    'address' => 'Address',
+    'phone' => 'Phone'
   ],
   'client'=> [
-    'email' => 'Correo electrónico',
+    'email' => 'Email',
   ],
   'users'=> [
-    'role' => 'Rol',
+    'role' => 'Role',
   ],
   'budget' => [
-    'user' => 'Usuario',
-    'client' => 'Cliente',
-    'start_date' => 'Fecha inicio',
-    'finish_date' => 'Fecha termino',
-    'glosa' => 'Comentario',
+    'user' => 'User',
+    'client' => 'Client',
+    'start_date' => 'Start date',
+    'finish_date' => 'Finish date',
+    'glosa' => 'Glosa',
     'subtotal' => 'Subtotal',
     'total' => 'Total',
-    'status'=> 'Estado',
+    'status'=> 'Status',
   ],
   'order'=> [
-    'order_code' => 'Código orden',
-    'provider'=> 'Proveedor',
-    'issue_date' => 'Fecha emisión',
-    'delivery_date' => 'Fecha entrega',
-    'comment' => 'Comentario',
-    'discount' => 'Descuento',
+    'order_code' => 'Order Code',
+    'provider'=> 'Provider',
+    'issue_date' => 'Issue date',
+    'delivery_date' => 'Delivery date',
+    'comment' => 'Comment',
+    'discount' => 'Discount',
     'iva' => 'IVA',
   ],
   ],

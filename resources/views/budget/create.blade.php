@@ -17,7 +17,7 @@
             @csrf
             <div class="card-body">
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Cliente</label>
+                <label class="col-sm-4 col-form-label">{{ trans('t.user.budget.client') }}</label>
                 <div class="col-sm-8">
                   <select name="client_id" id="select1" class="form-control {{ $errors->has('client_id') ? 'is_invalid' : '' }}" required>
                     <option value="0">Sin Cliente</option>
@@ -29,28 +29,28 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Fecha Inicio</label>
+                <label class="col-sm-4 col-form-label">{{ trans('t.user.budget.start_date') }}</label>
                 <div class="col-sm-8">
                   <input id="start" type="datetime-local" class="form-control {{ $errors->has('start_date') ? 'is-invalid' : '' }}" name="start_date" value="{{ old('start_date') }}" id="inputNombres" placeholder="Ingrese fecha inicio" required>
                   {!! $errors->first('start_date','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Fecha Termino</label>
+                <label class="col-sm-4 col-form-label">{{ trans('t.user.budget.finish_date') }}</label>
                 <div class="col-sm-8">
                   <input id="finish" type="datetime-local" class="form-control {{ $errors->has('finish_date') ? 'is-invalid' : '' }}" name="finish_date" value="{{ old('finish_date') }}" id="inputNombres" placeholder="Ingrese fecha termino" required>
                   {!! $errors->first('finish_date','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Comentario</label>
+                <label class="col-sm-4 col-form-label">{{ trans('t.user.budget.glosa') }}</label>
                 <div class="col-sm-8">
                   <textarea class="form-control {{ $errors->has('glosa') ? 'is-invalid' : '' }}" name="glosa" id="textarea-input" rows="10" placeholder="Ingrese comentario.." value="{{ old('glosa') }}"></textarea>
                   {!! $errors->first('glosa','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Estado</label>
+                <label class="col-sm-4 col-form-label">{{ trans('t.user.budget.status') }}</label>
                 <div class="col-sm-8">
                   <select name="status" id="select1" class="form-control {{ $errors->has('status') ? 'is_invalid' : '' }}" required>
                     @foreach ($status as $key=> $value)

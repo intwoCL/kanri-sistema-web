@@ -2,33 +2,33 @@
   <table class="table table-sm">
     <tbody>
       <tr>
-        <td>Cliente: </td>
+        <td>{{ trans('t.user.budget.client') }}: </td>
         <td>
           {{ !empty($budget->client) ? $budget->client->presenter()->getFullName() : 'N/A' }}
         </td>
       </tr>
       <tr>
-        <td>Usuario: </td>
+        <td>{{ trans('t.user.budget.user') }}: </td>
         <td>{{ $budget->user->presenter()->getFullName() }}</td>
       </tr>
       <tr>
-        <td>Fecha Inicio: </td>
+        <td>{{ trans('t.user.budget.start_date') }}: </td>
         <td>{{ $budget->getDateIn()->getDate() }} {{ $budget->getDateIn()->getTime() }}</td>
       </tr>
       <tr>
-        <td>Fecha Termino: </td>
+        <td>{{ trans('t.user.budget.finish_date') }}: </td>
         <td>{{ $budget->getDateOut()->getDate() }} {{ $budget->getDateOut()->getTime() }}</td>
       </tr>
       <tr>
-        <td>SubTotal: </td>
+        <td>{{ trans('t.user.budget.subtotal') }}: </td>
         <td>$ {{ $budget->getSubtotal() }}</td>
       </tr>
       <tr>
-        <td>IVA: </td>
+        <td>{{ trans('t.user.order.iva') }}: </td>
         <td>{{ $budget->iva }}%</td>
       </tr>
       <tr>
-        <td>Total: </td>
+        <td>{{ trans('t.user.budget.total') }}: </td>
         <td><strong>$ {{ $budget->getTotal() }}</strong></td>
       </tr>
     </tbody>

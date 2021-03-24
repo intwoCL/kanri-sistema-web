@@ -15,7 +15,7 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">
-              PRODUCTOS
+              {{ trans('t.title.product') }}
             </h3>
           </div>
           <div class="card-body">
@@ -32,7 +32,7 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">
-              SISTEMA
+              {{ trans('t.title.system') }}
             </h3>
           </div>
           <div class="card-body">
@@ -46,7 +46,7 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">
-              COTIZACIÓN
+              {{ trans('t.title.quote') }}
             </h3>
           </div>
           <div class="card-body">
@@ -59,7 +59,7 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">
-              Configuración
+              {{ trans('t.title.settings') }}
             </h3>
           </div>
           <div class="card-body">
