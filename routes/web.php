@@ -6,6 +6,7 @@ Route::get('/', 'Auth\AuthUserController@index');
 Route::post('login', 'Auth\AuthUserController@login')->name('login');
 
 Route::resource('user', 'System\UserController');
+Route::put('user/{id}/password', 'System\UserController@updatePassword')->name('user.password');
 
 Route::get('tabla', function () {
   return view('tabla');

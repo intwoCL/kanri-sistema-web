@@ -11,40 +11,22 @@ use App\Http\Requests\UserStoreRequest;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+
+    public function index(){
       $users = User::get();
       return view ('system.user.index', compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    public function create(){
       $roles = Role::get();
       return view('system.user.create', compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(UserStoreRequest $request)
-    {
+    public function store(UserStoreRequest $request){
       try {
         $u = new User();
         $u->email = $request->input('email');
-        $u->password = hash('sha256', $request->input('password'));       
+        $u->password = hash('sha256', $request->input('password'));
         $u->first_name = $request->input('first_name');
         $u->last_name = $request->input('last_name');
         $u->rol_id = $request->input('rol_id');
@@ -64,47 +46,25 @@ class UserController extends Controller
       }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+    public function show($id){
       $user = User::findOrFail($id);
       return view('system.user.show', compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-      $user = User::findOrFail($id);     
+    public function edit($id){
+      $user = User::findOrFail($id);
       $roles = Role::get();
       return view('system.user.edit',compact('user','roles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
       try {
         $u = User::findOrFail($id);
         $u->email = $request->input('email');
-        $u->password = hash('sha256', $request->input('password'));        
         $u->first_name = $request->input('first_name');
         $u->last_name = $request->input('last_name');
         $u->rol_id = $request->input('rol_id');
+
         if(!empty($request->file('photo'))){
           $request->validate([
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -115,20 +75,19 @@ class UserController extends Controller
           $u->photo= $filename;
         }
         $u->update();
-        return redirect()->route('user.index')->with('success',trans('alert.update'));
+        return back()->with('success',trans('alert.update'));
       } catch (\Throwable $th) {
         return redirect()->route('user.index')->with('danger', trans('alert.danger'));
       }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    public function updatePassword(Request $request, $id){
+      $u = User::findOrFail($id);
+      $u->changePassword($request->input('password'));
+      return back()->with('success',trans('alert.update'));
+    }
+
+    public function destroy($id){
       User::where('id',$id)->delete();
       return redirect()->route('user.index')->with('success', trans('alert.delete'));
     }
