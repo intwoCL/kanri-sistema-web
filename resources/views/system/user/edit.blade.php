@@ -25,13 +25,6 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Contraseña <small class="text-danger"* (123456)></small></label>
-                <div class="col-sm-8">
-                  <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password" value="{{ $user->password }}" id="inputNombres" placeholder="Ingrese contraseña" required>
-                  {!! $errors->first('password','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
-                </div>
-              </div>
-              <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Nombre</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control {{ $errors->has('first_name') ? 'is-invalid' : '' }}" autocomplete="off" name="first_name" value="{{ $user->first_name }}" id="inputNombres" placeholder="Ingrese nombre" required>
@@ -67,6 +60,29 @@
 
             <div class="card-footer">
               <button type="submit" class="btn btn-success float-right">{{ trans('button.update') }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Cambiar contraseña</h3>
+          </div>
+          <form class="form-horizontal form-submit" method="POST" action="{{ route('user.password',$user->id) }}">
+            @csrf
+            @method('PUT')
+            <div class="card-body">
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Contraseña <small class="text-danger">* (123456)</small></label>
+                <div class="col-sm-8">
+                  <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password" value="123456" id="inputNombres" placeholder="Ingrese contraseña" required>
+                  {!! $errors->first('password','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-success float-right">Guardar</button>
             </div>
           </form>
         </div>

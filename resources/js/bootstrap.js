@@ -9,7 +9,7 @@ window._ = require('lodash');
 try {
   window.$ = window.jQuery = require('jquery');
   window.Popper = require('@popperjs/core');
-  window.moment = require('moment');
+  // window.moment = require('moment');
   require('bootstrap');
   require('admin-lte');
   // window.Popper = require('popper.js').default;
@@ -34,9 +34,10 @@ if (token) {
 require('select2');
 require('overlayscrollbars');
 window.iziToast = require('izitoast');
-window.Sortable = require('sortablejs');
+// window.Sortable = require('sortablejs');
 require('sweetalert');
 require('./custom/double-request');
+require('chart.js');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
