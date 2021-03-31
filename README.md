@@ -18,12 +18,15 @@ Creado por (Justice2197)[https://github.com/Justice2197]
 # Instalar paquetes del proyecto
 
 composer install
+(si da problemas de instalación de "composer", borrar el archivo "composer.lock", reiniciar laragon y reintentar la instalación)
 
 npm install
 
 
 # Como iniciar el proyecto
 ```
+alternativo -> php artisan migrate --seed
+
 php artisan migrate:fresh --seed
 
 
@@ -35,6 +38,8 @@ composer dump-autoload
 php artisan cities:import
 
 npm run dev
+
+alternativa-> npm run watch
 ```
 
 Usuarios

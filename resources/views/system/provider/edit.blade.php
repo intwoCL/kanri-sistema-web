@@ -15,6 +15,7 @@
           </div>
           <form class="form-horizontal form-submit" method="POST" action="{{ route('provider.update',$provider->id) }}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="card-body">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Rut</label>
@@ -59,7 +60,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="card-footer">
               <button type="submit" class="btn btn-success float-right">{{ trans('button.update') }}</button>
             </div>
