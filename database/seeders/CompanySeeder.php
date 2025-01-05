@@ -15,15 +15,15 @@ class CompanySeeder extends Seeder
     public function run()
     {
       $company = new Company();
-      $company->run = '0000000-k';
-      $company->name_owner = 'Empresa s.a';
-      $company->name_company = "Empresa s.a";
+      $company->run = '14285735-9';
+      $company->name_owner = 'Pablo Peña';
+      $company->name_company = "PPEquipamientos";
       $company->type = 'Electronica, mecaninca, etc...';
-      $company->address = 'Av. 123123';
-      $company->city_id = 1039;
-      $company->phone = '9999999';
-      $company->email = 'empresa@demo.com';
-      $company->web_site = 'www.empresa.com';
+      $company->address = 'Santa Sara 11826';
+      $company->city_id = 1004;
+      $company->phone = '992493849';
+      $company->email = 'ppena@ppequipamientos.cl';
+      $company->web_site = 'www.ppequipamientos.cl';
       $company->color_company = '#007bff';
       $company->save();
     }

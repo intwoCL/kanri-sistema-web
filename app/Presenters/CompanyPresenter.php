@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Storage;
 class CompanyPresenter extends Presenter
 {
   private $folderImg = 'photo_company';
-  private $photoDefault = '/dist/image/portada.jpg';
-  private $logoDefault = '/dist/image/icono.svg';
+  private $photoDefault = '/dist/image/camion.jpg';
+  private $logoDefault = '/dist/image/logo2.png';
 
   public function getPhoto(){
     return (new Imagen($this->model->photo, $this->folderImg, $this->photoDefault))->call();

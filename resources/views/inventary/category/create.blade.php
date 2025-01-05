@@ -17,11 +17,13 @@
             @csrf
             <div class="card-body">
               <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Nombre</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" autocomplete="off" name="name" value="{{ old('name') }}" id="inputNombres" placeholder="Ingrese nombre categoria" required>
-                  {!! $errors->first('name','<small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
+                <label for="f1" class="col-form-label col-sm-3">Nombre</label>
+                <div class="input-group col-sm-9">
+                  <input type="text" class="form-control" name="name" placeholder="Nombre"
+                    required="" value="{{ old('name') }}" autocomplete="new-name">
+                  <small id="error" class="text-danger"></small>
                 </div>
+                {!! $errors->first('name','<small id="name" class="form-text text-danger text-center">:message</small>') !!}
               </div>
             </div>
             <div class="card-footer">

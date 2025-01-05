@@ -15,12 +15,21 @@ class UserSeeder extends Seeder
     public function run()
     {
       $user = new User();
-      $user->email = 'pablo.ignacio288@gmail.com';
+      $user->email = 'ppena@ppequipamientos.cl';
       $user->password  = hash('sha256', '123456');
       $user->first_name = 'Pablo';
-      $user->last_name = 'Pena';
+      $user->last_name = 'Peña Paredes';
       $user->rol_id = '1';
       $user->account_token = '1234';
+      $user->save();
+
+      $user = new User();
+      $user->email = 'pablo.ignacio288@gmail.com';
+      $user->password  = hash('sha256', '12345678');
+      $user->first_name = 'Pablo';
+      $user->last_name = 'Peña';
+      $user->rol_id = '2';
+      $user->account_token = '12345';
       $user->save();
 
       $user = new User();

@@ -5,10 +5,7 @@ namespace App\Http\Controllers\Inventary;
 use App\Http\Controllers\Controller;
 use App\Models\Inventary\Category;
 use App\Models\Inventary\Product;
-use App\Models\Inventary\ProductType;
-use App\Models\Inventary\Unit;
 use Illuminate\Http\Request;
-
 use App\Http\Requests\ProductRequest;
 use App\Services\ImportImage;
 
@@ -21,7 +18,7 @@ class ProductController extends Controller
    */
   public function index()
   {
-    $products = Product::with(['category','productType','units'])->get();
+    $products = Product::with(['category'])->get();
     // return $products;
     return view('inventary.product.index',compact('products'));
   }
@@ -33,9 +30,7 @@ class ProductController extends Controller
    */
   public function create(){
     $categories = Category::get();
-    $units = Unit::get();
-    $types = ProductType::get();
-    return view('inventary.product.create',compact('categories','units','types'));
+    return view('inventary.product.create',compact('categories'));
   }
 
   /**
@@ -51,10 +46,10 @@ class ProductController extends Controller
     $prod->name = $request->input('name');
     $prod->description = $request->input('description');
     $prod->import_price = $request->input('import_price');
-    $prod->credit_price = $request->input('credit_price');
+    // $prod->credit_price = $request->input('credit_price');
     $prod->category_id = $request->input('category_id');
-    $prod->product_type_id = $request->input('product_type_id');
-    $prod->units_id = $request->input('units_id');
+    // $prod->product_type_id = $request->input('product_type_id');
+    // $prod->units_id = $request->input('units_id');
     $prod->available_stock= $request->input('available_stock');
     $prod->critical_stock = $request->input('critical_stock');
 
@@ -91,9 +86,7 @@ class ProductController extends Controller
   {
     $product = Product::findOrFail($id);
     $categories = Category::get();
-    $units = Unit::get();
-    $types = ProductType::get();
-    return view('inventary.product.edit', compact('product','categories','units','types'));
+    return view('inventary.product.edit', compact('product','categories'));
   }
 
   /**
@@ -111,10 +104,10 @@ class ProductController extends Controller
       $prod->name = $request->input('name');
       $prod->description = $request->input('description');
       $prod->import_price = $request->input('import_price');
-      $prod->credit_price = $request->input('credit_price');
+      // $prod->credit_price = $request->input('credit_price');
       $prod->category_id = $request->input('category_id');
-      $prod->product_type_id = $request->input('product_type_id');
-      $prod->units_id = $request->input('units_id');
+      // $prod->product_type_id = $request->input('product_type_id');
+      // $prod->units_id = $request->input('units_id');
       $prod->available_stock= $request->input('available_stock');
       $prod->critical_stock = $request->input('critical_stock');
       if(!empty($request->file('photo'))){

@@ -74,12 +74,12 @@
             <form action="{{ route('login') }}" method="POST" class="form-prevent">
               @csrf
               <div class="form-group">
-                <label for="email" class="sr-only">email</label>
-                <input type="text" name="email" id="email" autofocus class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="Usuario" value="pablo.ignacio288@gmail.com" required>
+                <label for="email" class="sr-only">Correo</label>
+                <input type="text" name="email" id="email" autofocus class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="Usuario" value="ppena@ppequipamientos.cl" required>
                 {!! $errors->first('email', ' <small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
               </div>
               <div class="form-group mb-3">
-                <label for="password" class="sr-only">Password</label>
+                <label for="password" class="sr-only">Contraseña</label>
                 <input type="password" name="password" autocomplete="off" id="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" placeholder="Contraseña" value="123456" required>
                 {!! $errors->first('password', ' <small id="inputPassword" class="form-text text-danger text-center">:message</small>') !!}
               </div>

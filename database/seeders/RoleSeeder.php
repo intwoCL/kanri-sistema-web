@@ -16,12 +16,12 @@ class RoleSeeder extends Seeder
     {
       $role = new Role();
       $role->name = 'admin';
-      $role->description = 'Administrator';
+      $role->description = 'Administrador';
       $role->save();
 
       $role = new Role();
       $role->name = 'user';
-      $role->description = 'User';
+      $role->description = 'Usuario';
       $role->save();
       
     }

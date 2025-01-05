@@ -44,6 +44,9 @@ Route::middleware('auth.user')->group(function () {
     //Usuarios y Clientes
     Route::resource('user', 'UserController');
     Route::resource('client', 'ClientController');
+    Route::get('settings/profile','ConfiguracionController@profile')->name('settings.profile');
+    Route::post('settings/profile','ConfiguracionController@profileStore')->name('settings.profile');
+    Route::post('settings/profile/password','ConfiguracionController@password')->name('settings.profile.password');
   });
 
   Route::namespace('PurchaseOrder')->group(function () {

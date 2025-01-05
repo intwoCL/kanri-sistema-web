@@ -166,7 +166,9 @@
   ];
 
   CargarRegiones('select_region')
-  CargarComunas();
+  // CargarComunas();
+  document.getElementById("select_region").value = {{ $c->region_id}};
+  CargarComunaR({{ $c->city_id }});
 
   function CargarRegiones(selectId){
     var select = $('#'+selectId);
@@ -186,6 +188,21 @@
         select.append('<option value=' + value.id + '>' + value.name + '</option>');
     });
   }
+
+  function CargarComunaR(id){
+    var select = $('#select_comuna');
+    select.find('option').remove();
+    var id_r = document.getElementById("select_region").value;
+    var coms = comunas.filter( c => c.id_region==id_r);
+    $.each(coms, function(key,value) {
+        if (value.id == id) {
+          select.append('<option selected value=' + value.id + '>' + value.name + '</option>');
+        } else {
+          select.append('<option value=' + value.id + '>' + value.name + '</option>');
+        }
+    });
+  }
+
   function CargarComunasEdit(){
     var select = $('#select_comuna_edit');
     select.find('option').remove();

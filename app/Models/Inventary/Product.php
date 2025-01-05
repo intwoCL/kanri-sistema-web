@@ -27,15 +27,15 @@ class Product extends Model
     return $this->belongsTo(Category::class,'category_id')->withTrashed();
   }
 
-  public function productType()
-  {
-    return $this->belongsTo(ProductType::class,'product_type_id');
-  }
+  // public function productType()
+  // {
+  //   return $this->belongsTo(ProductType::class,'product_type_id');
+  // }
 
-  public function units()
-  {
-    return $this->belongsTo(Unit::class,'units_id');
-  }
+  // public function units()
+  // {
+  //   return $this->belongsTo(Unit::class,'units_id');
+  // }
 
   public function presenter()
   {
@@ -46,8 +46,8 @@ class Product extends Model
     return (new Currency($this->import_price))->money();
   }
 
-  public function getCreditPrice(){
-    return (new Currency($this->credit_price))->money();
-  }
+  // public function getCreditPrice(){
+  //   return (new Currency($this->credit_price))->money();
+  // }
 
 }

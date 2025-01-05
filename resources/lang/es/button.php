@@ -2,7 +2,7 @@
 
 return [
   'save' => 'Guardar',
-  'update' => 'Guardar cambios',
+  'update' => 'Actualizar',
   'new' => 'Nuevo',
   'edit' => 'Editar',
 ];

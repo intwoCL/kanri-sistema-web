@@ -7,7 +7,7 @@
     <a href="/home" class="nav-link"><i class="fa fa-home"></i> Home</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-    <a href="" class="nav-link">Perfil</a>
+    <a href="{{ route('settings.profile') }}" class="nav-link">Perfil</a>
     </li>
   </ul>
   <ul class="navbar-nav ml-auto">
@@ -18,15 +18,14 @@
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         {{-- <span class="dropdown-item dropdown-header">15 Notifications</span> --}}
         <div class="dropdown-divider"></div>
-        <a href="" class="dropdown-item">
+        <a href="{{ route('settings.profile') }}" class="dropdown-item">
           <i class="fas fa-user mr-2"></i> Perfil
           {{-- <span class="float-right text-muted text-sm">3 mins</span> --}}
         </a>
         <div class="dropdown-divider"></div>
-          <form action="" method="POST">
-            @csrf
-            <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Salir</button>
-          </form>
+        <a href="{{ route('signOut') }}" class="nav-link" type="button">
+          <i class="fas fa-times-circle"></i> Salir
+        </a>
       </div>
     </li>
   </ul>

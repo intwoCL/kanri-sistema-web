@@ -8,9 +8,9 @@ class ImportImage
 {
   public static function save(Request $request, $inputName = 'image' ,$name = '', $folderSave = 'public/trash'){
     try {
-      $request->validate([
-        $inputName => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-      ]);
+      // $request->validate([
+      //   $inputName => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      // ]);
 
       $file = $request->file($inputName);
       $filename = $name .'.'. $file->getClientOriginalExtension();

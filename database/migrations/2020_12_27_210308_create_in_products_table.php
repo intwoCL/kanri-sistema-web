@@ -19,10 +19,10 @@ class CreateInProductsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->double('import_price')->default(0);
-            $table->double('credit_price')->default(0);
+            // $table->double('credit_price')->default(0);
             $table->foreignId('category_id')->references('id')->on('in_categories');
-            $table->foreignId('product_type_id')->references('id')->on('in_product_type');
-            $table->foreignId('units_id')->references('id')->on('in_units');
+            // $table->foreignId('product_type_id')->references('id')->on('in_product_type');
+            // $table->foreignId('units_id')->references('id')->on('in_units');
             $table->integer('available_stock');
             $table->integer('critical_stock');
             $table->string('photo')->nullable();
